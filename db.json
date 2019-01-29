@@ -1,0 +1,30 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "fullname": "Kurylo Yevhen",
+      "email": "admin@admin.com",
+      "password": "admin"
+    },
+    {
+      "fullname": "Kravchenko Ruslan",
+      "email": "kravchenko@ruslan.com",
+      "password": "kravchenko",
+      "id": 2
+    }
+  ],
+  "cities": [
+    {
+      "city": "Kharkov",
+      "id": 1
+    },
+    {
+      "city": "Kyiv",
+      "id": 2
+    },
+    {
+      "city": "Lviv",
+      "id": 3
+    }
+  ]
+}

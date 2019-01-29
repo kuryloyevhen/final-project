@@ -1,0 +1,181 @@
+
+/*---   Mojor Blocks   ---*/
+
+.header {
+  position: fixed;
+  top:0;
+  left:0;
+  width: 100%;
+  height: 60px;
+}
+
+
+
+/*---   Minor Blocks*/
+
+.logo-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100%;
+  background-color: #edcd1f;
+  padding: 5px 0 0 60px;
+}
+
+.nav {
+  position: absolute;
+  top: 0;
+  left: 250px;
+  width: 100%;
+  height: 100%;
+  background-color: #1e2d3b;
+  padding-top: 25px;
+  padding-left: 40vw;
+}
+
+
+
+/*---   Elements   ---*/
+
+.logo-container .image {
+  width: 50px;
+  height: 50px;
+}
+
+.nav--desktop .list-item {
+  display: inline-block;
+}
+
+.nav--desktop .list-item:nth-child(-n+2) {
+  margin-right: 40px;
+}
+
+.nav--desktop .list-item:last-child {
+  margin-left: 250px;
+}
+
+.nav .link {
+  color: #fff;
+}
+
+
+
+@media screen and (min-width: 801px) {
+  .nav--mobile {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 801px) and (max-width: 1399px) {
+
+/*---   Major Blocks   ---*/
+
+.header {
+  height: 40px;
+}
+
+
+
+/*---   Minor Blocks   ---*/
+
+.logo-container {
+  width: 100px;
+  padding: 5px 20px;
+}
+
+.nav {
+  left: 100px;
+  padding-top: 15px;
+  padding-left: 10vw;
+  font-size: 14px;
+}
+
+
+
+/*---   Elements   ---*/
+
+  .logo-container .image {
+    width: 30px;
+    height: 30px;
+  }
+
+  .nav .list-item:nth-child(3) {       /*need to improve flexibility in case add new list-item*/
+    margin-right: 20vw;
+  }
+
+
+}
+
+
+
+@media screen and (max-width: 800px) {
+
+/*---   Major Blocks   ---*/
+
+.header {
+  height: 40px;
+}
+
+
+
+/*---   Minor Blocks   ---*/
+
+.logo-container {
+  width: 60px;
+  padding: 5px 15px;
+}
+
+.nav {
+  left: 60px;
+  padding-top: 10px;
+  padding-left: 10vw;
+}
+
+.nav--desktop .list {
+  display: none;
+}
+
+
+/*---   Elements   ---*/
+
+.logo-container .image {
+  width: 30px;
+  height: 30px;
+}
+
+.nav--mobile .button {
+  width: 25px;
+  height: 25px;
+  background-color: inherit;
+  position: absolute;
+  top: 5px;
+  right: 100px;
+}
+
+.nav--mobile .image {
+  width: 100%;
+  height: 100%;
+}
+
+.nav--mobile .list--hidden {
+  display: none;
+}
+
+.nav--mobile .list {
+  position: fixed;
+  top: 40px;
+  left: 0;
+  height: 40vh;
+  width: 100%;
+  background-color: #1e2d3b;
+  vertical-align: middle;
+}
+
+.nav--mobile .list-item {
+  text-align: center;
+  margin-top: 30px;
+}
+
+
+}

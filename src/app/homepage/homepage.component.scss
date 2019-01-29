@@ -1,0 +1,206 @@
+
+/*---   Major Blocks   ---*/
+
+.sign-in-container {
+  background-image: url('../../assets/bike-fleet.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 90vh;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.offers {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+
+
+/*---   Minor Blocks   ---*/
+
+.offer {
+  flex: 0 0 20%;
+  background-color: #f7f5f5;
+}
+
+.authorization-panel {
+  border: 2px solid #32b5e4;
+  border-top: 5px solid #32b5e4;
+  height: 280px;
+  width: 300px;
+  background-color: #fff;
+}
+
+.registration-panel {
+  border: 2px solid #32b5e4;
+  border-top: 5px solid #32b5e4;
+  height: 300px;
+  width: 350px;
+  background-color: #fff;
+}
+
+
+
+/*---   Elements   ---*/
+
+.text {
+  font-size: 20px;
+}
+
+.title {
+  font-size: 40px;
+  text-align: center;
+}
+
+.subtitle {
+  font-size: 24px;
+  color: #3d5975;
+}
+
+.header {
+  padding: 10px 0 20px 20px;
+}
+
+.main {
+  padding: 0 20px 5px 20px;
+}
+
+.footer {
+  text-align: center;
+}
+
+.input {
+  width: 100%;
+  height: 30px;
+  margin-top: 5px;
+}
+
+.button {
+  background-color: #32b5e4;
+  font-size: 16px;
+  padding: 10px 30px;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+}
+
+.button--text {
+  border: none;
+  background-color: inherit;
+  color: #32b5e4;
+  font-weight: bold;
+}
+
+.label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.registration-panel .label:nth-child(-n+2){
+  display: inline-block;
+  width: 50%;
+}
+
+.sign-in-container .text {
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.sign-in-container .title {
+  font-weight: bold;
+}
+
+.offers .title {
+  text-decoration: underline solid #c9d544;
+  color: #34316b;
+  flex: 0 0 100%;
+  margin-bottom: 30px;
+}
+
+.offer .text {
+  padding: 10px 5px;
+}
+
+.offer .image {
+  height: 200px;
+  width: 100%;
+}
+
+
+
+@media screen and (min-width: 600px) and (max-width: 1399px){
+
+  /*---   Major Blocks   ---*/
+
+  .sign-in-container {
+    padding-top: 40px;
+  }
+
+
+
+  /*---   Elements   ---*/
+
+  .offer {
+    flex: 0 0 35%;
+    margin-bottom: 20px;
+  }
+
+}
+
+@media screen and (max-width: 599px) {
+
+  /*---   Major Blocks   ---*/
+
+.offers {
+  flex-direction: column;
+  align-content: space-around;
+  justify-content: space-around;
+}
+
+
+
+  /*---   Minor Blocks   ---*/
+
+.sign-in-container {
+  padding-top: 40px;
+}
+
+.registration-panel {
+  width: 300px;
+}
+
+.offer {
+  width: 250px;
+  align-self: center;
+  margin-bottom: 20px;
+}
+
+
+
+  /*---   Elements   ---*/
+
+.title {
+  font-size: 30px;
+}
+
+.text {
+  font-size: 20px;
+}
+
+.sign-in-container .text {
+  text-align: center;
+}
+
+.offer .image {
+  height: 200px;
+  width: 100%;
+}
+
+
+}

@@ -1,21 +1,41 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<header class='header'>
+  <div class="logo-container">
+    <img class="image" src="./assets/triskelion.svg">
+  </div>
+  <nav class="nav nav--desktop">
+    <ul class="list" *ngIf = 'gateway.authorized == true'>
+      <li class="list-item">
+        <a class="link" routerLink = 'homepage'>HOME</a>
+      </li>
+      <li class="list-item">
+        <a class="link">RENT</a>
+      </li>
+      <li class="list-item">
+        <a href="" class="link">ABOUT US</a>
+      </li>
+      <li class="list-item" *ngIf = 'gateway.adminRoot == true'>
+        <a class="link" routerLink='adminpage' >ADMIN</a>
+      </li>
+    </ul>
+  </nav>
+  <nav class="nav nav--mobile">
+    <ul class="list list--hidden" #navMobile>
+      <li class="list-item">
+        <a class="link" routerLink = 'homepage' (click)='showNav(navMobile)'>HOME</a>
+      </li>
+      <li class="list-item">
+        <a class="link" (click)='showNav(navMobile)'>RENT</a>
+      </li>
+      <li class="list-item">
+        <a href="" class="link" (click)='showNav(navMobile)'>ABOUT US</a>
+      </li>
+      <li class="list-item" *ngIf = 'gateway.adminRoot == true'>
+        <a routerLink='adminpage' class="link" (click)='showNav(navMobile)'>ADMIN</a>
+      </li>
+    </ul>
+    <button type="button" class="button" *ngIf = 'gateway.authorized == true' (click)='showNav(navMobile)'><img src="../assets/menu.svg"  class="image"></button>
+  </nav>
+</header>
+
 
 <router-outlet></router-outlet>

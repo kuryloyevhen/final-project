@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { GatewayService } from './gateway.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'project-v2';
+
+  constructor(private gateway: GatewayService){}
+
+  title = 'project2';
+
+  showNav(elem){
+    elem.classList.toggle('list--hidden');
+  }
+
+
+
+
+
 }
