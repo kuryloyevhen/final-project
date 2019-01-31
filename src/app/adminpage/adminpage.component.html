@@ -1,80 +1,11 @@
 <div class="admin">
-
   <div class="articles-panel" #articles>
     <div class="articles">
-
-      <button
-      class="article" [class.article--selected]='selectedA == "city"'
-      (click)='selectArticle("city")' (click)='showOptions("1")' >
-      Cities</button>
-
-
-      <button
-      class="article" [class.article--selected]='selectedA == "department"'
-      (click)='selectArticle("department")' (click)='showOptions("2")' >
-      Departments</button>
-
-
-      <button
-      class="article" [class.article--selected]='selectedA == "user"'
-      (click)='selectArticle("user")' (click)='showOptions("3")'>
-      Users</button>
-
-
-      <button
-      class="article" [class.article--selected]='selectedA == "reservation"'
-      (click)='selectArticle("reservation")' (click)='showOptions("4")'>
-      Reservations</button>
-
-
+      <a class="article" routerLink = 'cities' routerLinkActive = 'active'>Cities</a>
+      <a class="article" routerLink = 'centers' routerLinkActive = 'active'>Centers</a>
+      <a class="article" routerLink = 'users' routerLinkActive = 'active'>Users</a>
+      <a class="article" routerLink = 'reservations' routerLinkActive = 'active'>Reservations</a>
     </div>
   </div>
-
-  <div class="options-container" [ngSwitch] = 'options'>
-
-    <div class="options" *ngSwitchCase = "1" [ngSwitch]='option'>
-        <div class="buttons">
-
-          <button type="button"
-          class="button" [class.option--selected]='selectedO == "add"'
-          (click)='showOption("1")' (click)='selectOption("add")' (click)='getCities()'>
-          Add</button>
-
-
-          <button type="button"
-          class="button" [class.option--selected]='selectedO == "delete"'
-          (click)='showOption(2)' (click)='selectOption("delete")'>
-          Delete</button>
-
-
-          <button type="button"
-          class="button" [class.option--selected]='selectedO == "edit"'
-          (click)='showOption("3")' (click)='selectOption("edit")'>
-          Edit</button>
-        </div>
-
-        <div *ngSwitchCase='1' class="content">
-          <label>
-            <input type="text" #newCity>
-            <button type="button" (click)='addCity(newCity.value)'>Add city</button>
-          </label>
-        </div>
-
-        <div *ngSwitchCase='2' class="content" >
-          <button type="button" class='button' (click)='getCities()'>Show cities</button>
-          <button type="button" class='button'>Delete cities</button>
-            <label class="label" *ngFor='let city of cities'>{{city}}
-              <input class="checkbox" type="checkbox">
-            </label>
-        </div>
-
-        <div *ngSwitchCase='3' class="content" >
-          Editing cities is working
-        </div>
-
-
-
-    </div>
-
-  </div>
+  <router-outlet></router-outlet>
 </div>

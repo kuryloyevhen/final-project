@@ -5,48 +5,9 @@
       Rent a bike and enjoy the movement of life comfortably!
     </p>
 
-    <div class="authorization-panel" [hidden] = 'hide == "authorization"' *ngIf = 'gateway.authorized == false'>
-      <header class="header">
-        <h2 class='subtitle'>Login to your acount</h2>
-      </header>
-      <main class="main">
-        <label class='label'>Enter email:
-          <input class="input" type="email" name="email" #name >
-        </label>
-        <label class='label'>Enter password:
-          <input class="input" type="password" name="password" #password>
-        </label>
-      </main>
-      <footer class="footer">
-        <button class="button" type="button" (click)='confirmUser(name.value, password.value)'>SIGN IN</button><br><br>
-        <button class="button--text" type="button" (click)='hidePanel("authorization")'>I don't have an account</button>
-      </footer>
+    <app-authorization>  </app-authorization>
+    <app-registration>  </app-registration>
 
-    </div>
-
-    <div class="registration-panel" [hidden] = 'hide == "registration"' *ngIf = 'gateway.authorized == false'>
-      <header class="header">
-        <h2 class='subtitle'>Create your acount</h2>
-      </header>
-      <main class="main">
-            <label class='label'>Enter firstname:
-              <input class="input" type="text" #firstname>
-            </label>
-            <label class='label'>Enter lastname:
-              <input class="input" type="text" #lastname>
-            </label>
-        <label class='label'>Enter email:
-          <input class="input" type="email" #newEmail>
-        </label>
-        <label class='label'>Enter password:
-          <input class="input" type="password" #newPassword>
-        </label>
-      </main>
-      <footer class="footer">
-        <button class="button" type="button" (click)='registerUser(firstname.value, lastname.value, newEmail.value, newPassword.value)'>SIGN IN</button>
-        <button class='button--text' type="button" (click)='hidePanel("registration")'>I have an account</button>
-      </footer>
-    </div>
   </div>
   <div class="offers">
     <h1 class="title">We offer</h1><br>

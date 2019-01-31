@@ -1,0 +1,22 @@
+
+/*---   Block Sizes   ---*/
+
+$height-main-header-laptop: 60px;
+$height-main-header-netbook: 40px;
+
+$width-article-panel-laptop: 250px;
+$width-logo-container-laptop: $width-article-panel-laptop;
+$width-article-panel-netbook: 150px;
+$width-logo-container-netbook: $width-article-panel-netbook;
+
+
+/*---   Positions   ---*/
+
+$nav-left-laptop: $width-logo-container-laptop;
+$nav-left-netbook: $width-logo-container-netbook;
+
+
+/*---   Indents   ---*/
+
+$children-padding-laptop: ($height-main-header-laptop + 20px) 0 0 ($width-article-panel-laptop + 20px);
+$children-padding-netbook: ($height-main-header-netbook + 20px) 0 0 ($width-article-panel-netbook + 20px);

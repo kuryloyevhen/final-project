@@ -1,0 +1,24 @@
+<header class='header'>
+  <div class="logo-container">
+    <img class="image" src="./assets/triskelion.svg">
+  </div>
+  <nav class="nav">
+    <ul class="list" #list>
+      <li class="list-item">
+        <a class="link" routerLink = 'homepage' routerLinkActive = 'active'>HOME</a>
+      </li>
+      <li class="list-item">
+        <a class="link">RENT</a>
+      </li>
+      <li class="list-item">
+        <a href="" class="link">ABOUT US</a>
+      </li>
+      <li class="list-item">
+        <a class="link" routerLink='adminpage' routerLinkActive = 'active'>ADMIN</a>
+      </li>
+    </ul>
+    <button type="button" class="button" (click)='showNav(list)'>
+      <img src="../assets/menu.svg"  class="image">
+    </button>
+  </nav>
+</header>

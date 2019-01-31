@@ -1,41 +1,4 @@
-<header class='header'>
-  <div class="logo-container">
-    <img class="image" src="./assets/triskelion.svg">
-  </div>
-  <nav class="nav nav--desktop">
-    <ul class="list" *ngIf = 'gateway.authorized == true'>
-      <li class="list-item">
-        <a class="link" routerLink = 'homepage'>HOME</a>
-      </li>
-      <li class="list-item">
-        <a class="link">RENT</a>
-      </li>
-      <li class="list-item">
-        <a href="" class="link">ABOUT US</a>
-      </li>
-      <li class="list-item" *ngIf = 'gateway.adminRoot == true'>
-        <a class="link" routerLink='adminpage' >ADMIN</a>
-      </li>
-    </ul>
-  </nav>
-  <nav class="nav nav--mobile">
-    <ul class="list list--hidden" #navMobile>
-      <li class="list-item">
-        <a class="link" routerLink = 'homepage' (click)='showNav(navMobile)'>HOME</a>
-      </li>
-      <li class="list-item">
-        <a class="link" (click)='showNav(navMobile)'>RENT</a>
-      </li>
-      <li class="list-item">
-        <a href="" class="link" (click)='showNav(navMobile)'>ABOUT US</a>
-      </li>
-      <li class="list-item" *ngIf = 'gateway.adminRoot == true'>
-        <a routerLink='adminpage' class="link" (click)='showNav(navMobile)'>ADMIN</a>
-      </li>
-    </ul>
-    <button type="button" class="button" *ngIf = 'gateway.authorized == true' (click)='showNav(navMobile)'><img src="../assets/menu.svg"  class="image"></button>
-  </nav>
-</header>
+<app-header>  </app-header>
 
 
 <router-outlet></router-outlet>

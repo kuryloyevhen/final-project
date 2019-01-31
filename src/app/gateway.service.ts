@@ -9,5 +9,6 @@ export class GatewayService {
 
   authorized: boolean = false;
   adminRoot: boolean = false;
+  hide: string = 'registration';
 
 }
