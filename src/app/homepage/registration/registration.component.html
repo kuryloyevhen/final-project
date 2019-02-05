@@ -1,23 +1,23 @@
-<div class="registration-panel" [hidden] = 'gateway.hide == "registration"' *ngIf = 'gateway.authorized == false'>
+<div class="registration-panel" *ngIf = 'gateway.authorized == false'>
   <header class="header">
     <h2 class='subtitle'>Create your acount</h2>
   </header>
   <main class="main">
         <label class='label'>Enter firstname:
-          <input class="input" type="text" #firstname>
+          <input class="input" type="text" #name>
         </label>
         <label class='label'>Enter lastname:
-          <input class="input" type="text" #lastname>
+          <input class="input" type="text" #sirname>
         </label>
     <label class='label'>Enter email:
-      <input class="input" type="email" #newEmail>
+      <input class="input" type="email" #email>
     </label>
     <label class='label'>Enter password:
-      <input class="input" type="password" #newPassword>
+      <input class="input" type="password" #password>
     </label>
   </main>
   <footer class="footer">
-    <button class="button" type="button" (click)='registerUser(firstname.value, lastname.value, newEmail.value, newPassword.value)'>SIGN IN</button><br>
+    <button class="button" type="button" (click)='signUp(name.value, sirname.value, email.value, password.value)'>SIGN IN</button><br>
     <button class='button--text' type="button" (click)='hidePanel("registration")'>I have an account</button>
   </footer>
 </div>

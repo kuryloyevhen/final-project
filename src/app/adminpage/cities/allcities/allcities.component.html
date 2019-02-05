@@ -1,0 +1,9 @@
+<div class="show">
+  <button type="button" (click)='getCities()'>Show city</button>
+  <ul>
+    <li *ngFor='let city of cities'>
+      {{city.city}}
+      <button type="button" (click)='removeCity(city.id)'>Delete</button>
+    </li>
+  </ul>
+</div>

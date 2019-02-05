@@ -4,15 +4,15 @@
   </header>
   <main class="main">
     <label class='label'>Enter email:
-      <input class="input" type="email" name="email" #name >
+      <input class="input" type="email" name="email" #email >
     </label>
     <label class='label'>Enter password:
       <input class="input" type="password" name="password" #password>
     </label>
   </main>
   <footer class="footer">
-    <button class="button" type="button" (click)='confirmUser(name.value, password.value)'>SIGN IN</button><br><br>
-    <button class="button--text" type="button" (click)='hidePanel("authorization")'>I don't have an account</button>
+    <button class="button" type="button" (click)='signIn(email.value, password.value)'>SIGN IN</button><br><br>
+    <button type="button" class="button--text" (click)='register()'>I don't have an account</button>
   </footer>
 
 </div>

@@ -9,14 +9,22 @@ $width-logo-container-laptop: $width-article-panel-laptop;
 $width-article-panel-netbook: 150px;
 $width-logo-container-netbook: $width-article-panel-netbook;
 
+$height-admin-options: 40px;
+
 
 /*---   Positions   ---*/
 
 $nav-left-laptop: $width-logo-container-laptop;
 $nav-left-netbook: $width-logo-container-netbook;
 
+$admin-options-left-laptop: $width-article-panel-laptop;
+$admin-options-left-netbook: $width-article-panel-netbook;
+$admin-options-top-laptop: $height-main-header-laptop;
+$admin-options-top-netbook: $height-main-header-netbook;
+
+
 
 /*---   Indents   ---*/
 
-$children-padding-laptop: ($height-main-header-laptop + 20px) 0 0 ($width-article-panel-laptop + 20px);
-$children-padding-netbook: ($height-main-header-netbook + 20px) 0 0 ($width-article-panel-netbook + 20px);
+$admin-content-padding-laptop: ($height-main-header-laptop + $height-admin-options + 20px) 0 0 ($width-article-panel-laptop + 20px);
+$admin-content-padding-netbook: ($height-main-header-netbook + $height-admin-options + 20px) 0 0 ($width-article-panel-netbook + 20px);
