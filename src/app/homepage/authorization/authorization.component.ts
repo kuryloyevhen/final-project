@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { Location } from '@angular/common';
-import { GatewayService } from '../../services/gateway.service';
+import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-authorization',
@@ -9,27 +8,18 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./authorization.component.scss']
 })
 
-export class AuthorizationComponent implements OnInit {
+export class AuthorizationComponent {
 
-  constructor(private location: Location,
-              private gateway: GatewayService,
+  constructor(private fb: FormBuilder,
               private auth: AuthService) { }
 
-  ngOnInit() {
+  authorizationForm = this.fb.group({
+    email: [''],
+    password: ['']
+  });
 
-  }
-
-
-  register(){
-    this.location.go('homepage/registration');
-  }
-
-  signIn(email: string, password: string){
-    let data = {
-      "email": email,
-      "password": password
-    };
-    this.auth.signIn(data)
+  signIn(){
+    this.auth.signIn(this.authorizationForm.value)
       .subscribe( (response) => {
         console.log(response);
         localStorage.setItem("access_token", response.access_token);

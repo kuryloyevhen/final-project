@@ -1,0 +1,21 @@
+
+@import "../../../../variables.scss";
+
+
+@media screen and (min-width: 1400px){
+
+
+  .user {
+    padding: $admin-content-padding-laptop;
+  }
+
+}
+
+
+@media screen and (max-width: 1399px){
+
+  .user {
+    padding: $admin-content-padding-netbook;
+  }
+
+}

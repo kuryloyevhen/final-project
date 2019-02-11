@@ -1,17 +1,14 @@
-import { Component, OnInit } from '@angular/core';
-import { GatewayService } from '../services/gateway.service';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
 
-  constructor(private gateway: GatewayService) { }
+  constructor() { }
 
-  ngOnInit() {
-  }
 
   showNav(elem){
     elem.classList.toggle('list--visible');

@@ -1,31 +1,26 @@
-import { Component, OnInit } from '@angular/core';
-import { GatewayService } from '../../services/gateway.service';
+import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
   styleUrls: ['./registration.component.scss']
 })
-export class RegistrationComponent implements OnInit {
+export class RegistrationComponent {
 
-  constructor(private gateway: GatewayService,
+  constructor(private fb: FormBuilder,
               private auth: AuthService) { }
 
-  ngOnInit() {
-  }
 
-  hidePanel(name: string){
-    this.gateway.hide = name;
-  }
+  registrationFrom = this.fb.group({
+    fullName: [''],
+    email: [''],
+    password: ['']
+  })
 
-  signUp(name: string, sirname: string, email: string, password: string){
-    let data = {
-      "fullName": name + ' ' + sirname,
-      "email": email,
-      "password": password
-    };
-    this.auth.signUp(data)
+  signUp(){
+    this.auth.signUp(this.registrationFrom.value)
       .subscribe( (response) => console.log(response) );
   }
 

@@ -9,6 +9,6 @@ export class UsersService {
   constructor(private http: HttpClient) { }
 
   getUsers(): Observable<any>{
-    return this.http.get<any>('https://0uumsbtgfd.execute-api.eu-central-1.amazonaws.com/Development/v0/users');
+    return this.http.get<any>('https://0uumsbtgfd.execute-api.eu-central-1.amazonaws.com/Development/v0/users/all');
   }
 }

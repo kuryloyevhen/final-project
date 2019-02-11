@@ -1,0 +1,17 @@
+
+<div class="user">
+  <div class="search">
+    <label>
+      User name:
+      <input type="text" #name>
+    </label>
+    <label>
+      User ID:
+      <input type="text" #id>
+    </label>
+    <button type="button" (click)='findUser(name.value, id.value)'>Search</button>
+  </div>
+  <div class="user-info">
+    <p>{{ user | json }}</p>
+  </div>
+</div>

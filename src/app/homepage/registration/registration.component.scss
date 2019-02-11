@@ -3,7 +3,7 @@
   border: 2px solid #32b5e4;
   border-top: 5px solid #32b5e4;
   height: 300px;
-  width: 350px;
+  width: 300px;
   background-color: #fff;
 }
 
@@ -34,9 +34,7 @@
   color: #fff;
 }
 
-.button--text {
-  border: none;
-  background-color: inherit;
+.link {
   color: #32b5e4;
   font-weight: bold;
 }
@@ -44,11 +42,6 @@
 .label {
   display: block;
   margin-bottom: 10px;
-}
-
-.registration-panel .label:nth-child(-n+2){
-  display: inline-block;
-  width: 50%;
 }
 
 .subtitle {

@@ -1,0 +1,18 @@
+<div class="adding" [formGroup]='addCityForm'>
+  <label class="label">
+    City name:
+    <input class="input" type="text" formControlName='city'>
+  </label>
+  <div formGroupName='location'>
+    <h2 class="subtitle">Location</h2>
+    <label class="label">
+      Latitude:
+      <input class="input" type="text" formControlName='lat'>
+    </label>
+    <label class="label">
+      Longitude:
+      <input class="input" type="text" formControlName='lon'>
+    </label>
+  </div>
+  <button class='button' type="button" (click)='addCity()'>Add city</button>
+</div>

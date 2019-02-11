@@ -1,0 +1,32 @@
+
+@import '../../../../variables.scss';
+
+.table {
+  border: 1px solid #000;
+  border-collapse: collapse;
+}
+
+td, th {
+  border: 1px solid #000;
+  vertical-align: middle;
+  text-align: center;
+  padding: 10px 5px;
+}
+
+@media screen and (min-width: 1400px){
+
+
+  .add-center {
+    padding: $admin-content-padding-laptop;
+  }
+
+}
+
+
+@media screen and (max-width: 1399px){
+
+  .add-center {
+    padding: $admin-content-padding-netbook;
+  }
+
+}
