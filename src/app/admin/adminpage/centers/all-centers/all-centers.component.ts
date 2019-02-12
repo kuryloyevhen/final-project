@@ -22,9 +22,7 @@ export class AllCentersComponent implements OnInit {
   mapLon: number;
 
 
-  ngOnInit() {}
-
-  initMap(mapLat: number, mapLon: number){
+  ngOnInit() {
     this.map = new ol.Map({
       target: 'map',
       layers: [
@@ -33,10 +31,14 @@ export class AllCentersComponent implements OnInit {
         })
       ],
       view: new ol.View({
-        center: ol.proj.fromLonLat([mapLon, mapLat]),
+        center: ol.proj.fromLonLat([30.516382, 50.431782]),
         zoom: this.mapDefaultZoom
       })
     });
+  }
+
+  initMap(mapLat: number, mapLon: number){
+
 }
 
   addMarker(markerLat: string, markerLon:string){
@@ -71,20 +73,14 @@ export class AllCentersComponent implements OnInit {
     }
 
     check(){
-      this.initMap(+this.mapLat, +this.mapLon);
+      let view = this.map.getView();//
+      view.setCenter(ol.proj.fromLonLat([30.516382, 50.431782]));
+      console.log(this.mapLon, this.mapLat);
+      view.setZoom(8);
       for(let center of this.centers){
         this.addMarker(center.location.lat, center.location.lon );
       }
-
-      console.log(this.centers);
     }
-
-
-
-
-
-
-
 
 
   getCenters(city: string){

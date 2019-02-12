@@ -1,19 +1,15 @@
 
 @import "../../../../variables.scss";
 
-.label {
-  display: block;
-  margin-bottom: 20px;
+.button--basic {
+  margin-left: 20px;
 }
 
-.input {
-  margin-top: 5px;
-}
 
 @media screen and (min-width: 1400px){
 
 
-  .adding {
+  .reservations {
     padding: $admin-content-padding-laptop;
   }
 
@@ -22,7 +18,7 @@
 
 @media screen and (max-width: 1399px){
 
-  .adding {
+  .reservations {
     padding: $admin-content-padding-netbook;
   }
 

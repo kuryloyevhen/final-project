@@ -1,8 +1,8 @@
 <div class="centers">
   <div class="centers-list">
     <input type="text" #cityName>
-    <button type="button" (click)='showCenters(cityName.value)'>Show centers</button>
-    <button type="button" (click)=check()>Check</button>
+    <button class="button--basic" type="button" (click)='showCenters(cityName.value)'>Show centers</button>
+    <button class="button--basic" type="button" (click)=check()>Check</button>
     <ul>
       <li *ngFor='let center of centers'>
         {{center.name}}

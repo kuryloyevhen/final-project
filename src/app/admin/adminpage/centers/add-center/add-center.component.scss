@@ -1,16 +1,21 @@
 
 @import '../../../../variables.scss';
 
-.table {
-  border: 1px solid #000;
-  border-collapse: collapse;
+.label {
+  display: block;
+  margin-bottom: 5px;
 }
 
-td, th {
-  border: 1px solid #000;
-  vertical-align: middle;
-  text-align: center;
-  padding: 10px 5px;
+.title {
+  margin-bottom: 10px;
+}
+
+.section {
+  margin-top: 10px;
+}
+
+.subsection {
+  margin-bottom: 20px;
 }
 
 @media screen and (min-width: 1400px){

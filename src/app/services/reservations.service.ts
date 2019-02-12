@@ -9,9 +9,14 @@ export class ReservationsService {
 
   constructor(private http: HttpClient) { }
 
-  urlReservations: string = 'https://0uumsbtgfd.execute-api.eu-central-1.amazonaws.com/Development/v0//bookings/user/';
+  urlBookingByUser: string = 'https://0uumsbtgfd.execute-api.eu-central-1.amazonaws.com/Development/v0//bookings/user/';
+  urlBookingByCity: string = 'https://0uumsbtgfd.execute-api.eu-central-1.amazonaws.com/Development/v0//bookings/city/';
 
-  getBooking(id, status): Observable<any>{
-    return this.http.get<any>(this.urlReservations+`${id}`+'/status/'+`${status}`);
+  getBookingByUser(id, status): Observable<any> {
+    return this.http.get<any>(this.urlBookingByUser+`${id}`+'/status/'+`${status}`);
+  }
+
+  getBookingByCity(city): Observable<any> {
+    return this.http.get<any>(this.urlBookingByCity+`${city}`);
   }
 }

@@ -1,121 +1,128 @@
 <div class="add-center" [formGroup]='addCenterForm'>
-  <label>
-    City name:
-    <input type="text" formControlName='city'>
+  <label class='label'>
+    City name:<br>
+    <input type="text" class='input' formControlName='city'>
   </label>
   <div class="section" formGroupName='location'>
-    <label>
-      Location:
-      <input type="text" formControlName='lon'>
-      <input type="text" formControlName='lat'>
-      <input type="text" formControlName='address'>
+    <h1 class="title">Location</h1>
+    <label class='label'>
+      Longitude:
+      <input type="text" class='input' formControlName='lon'>
+    </label>
+    <label class="label">
+      Latitude:
+      <input type="text" class='input' formControlName='lat'>
+    </label>
+    <label class="label">
+      Address:
+      <input type="text" class='input' formControlName='address'>
     </label>
   </div>
   <div class="section" formGroupName='availableTime'>
-    <h1>Available Time</h1>
+    <h1 class="title">Available Time</h1>
     <div class="subsection" formGroupName='monday'>
       <h2>Monday</h2>
-      <label>
+      <label class='label'>
         Open time:
-        <input type="text" formControlName='openTime'>
+        <input type="text" class='input' formControlName='openTime'>
       </label>
-      <label>
+      <label class='label'>
         Close time:
-        <input type="text" formControlName='closeTime'>
+        <input type="text" class='input' formControlName='closeTime'>
       </label>
       Closed:
       <input type="radio" formControlName='isOpen'>
     </div>
     <div class="subsection" formGroupName='tuesday'>
       <h2>Tuesday</h2>
-      <label>
+      <label class='label'>
         Open time:
-        <input type="text" formControlName='openTime'>
+        <input type="text" class='input' formControlName='openTime'>
       </label>
-      <label>
+      <label class='label'>
         Close time:
-        <input type="text" formControlName='closeTime'>
+        <input type="text" class='input' formControlName='closeTime'>
       </label>
       Closed:
       <input type="radio" formControlName='isOpen'>
     </div>
     <div class="subsection" formGroupName='wednesday'>
       <h2>Wednesday</h2>
-      <label>
+      <label class='label'>
         Open time:
-        <input type="text" formControlName='openTime'>
+        <input type="text" class='input' formControlName='openTime'>
       </label>
-      <label>
+      <label class='label'>
         Close time:
-        <input type="text" formControlName='closeTime'>
+        <input type="text" class='input' formControlName='closeTime'>
       </label>
       Closed:
       <input type="radio" formControlName='isOpen'>
     </div>
     <div class="subsection" formGroupName='thuesday'>
       <h2>Thursday</h2>
-      <label>
+      <label class='label'>
         Open time:
-        <input type="text" formControlName='openTime'>
+        <input type="text" class='input' formControlName='openTime'>
       </label>
-      <label>
+      <label class='label'>
         Close time:
-        <input type="text" formControlName='closeTime'>
+        <input type="text" class='input' formControlName='closeTime'>
       </label>
       Closed:
       <input type="radio" formControlName='isOpen'>
     </div>
     <div class="subsection" formGroupName='friday'>
       <h2>Friday</h2>
-      <label>
+      <label class='label'>
         Open time:
-        <input type="text" formControlName='openTime'>
+        <input type="text" class='input' formControlName='openTime'>
       </label>
-      <label>
+      <label class='label'>
         Close time:
-        <input type="text" formControlName='closeTime'>
+        <input type="text" class='input' formControlName='closeTime'>
       </label>
       Closed:
       <input type="radio" formControlName='isOpen'>
     </div>
     <div class="subsection" formGroupName='saturday'>
       <h2>Saturday</h2>
-      <label>
+      <label class='label'>
         Open time:
-        <input type="text" formControlName='openTime'>
+        <input type="text" class='input' formControlName='openTime'>
       </label>
-      <label>
+      <label class='label'>
         Close time:
-        <input type="text" formControlName='closeTime'>
+        <input type="text" class='input' formControlName='closeTime'>
       </label>
       Closed:
       <input type="radio" formControlName='isOpen'>
     </div>
     <div class="subsection" formGroupName='sunday'>
       <h2>Sunday</h2>
-      <label>
+      <label class='label'>
         Open time:
-        <input type="text" formControlName='openTime'>
+        <input type="text" class='input' formControlName='openTime'>
       </label>
-      <label>
+      <label class='label'>
         Close time:
-        <input type="text" formControlName='closeTime'>
+        <input type="text" class='input' formControlName='closeTime'>
       </label>
       Closed:
       <input type="radio" formControlName='isOpen'>
     </div>
   </div>
-  <label>
+  <label class='label'>
     Cost for one bike:
-    <input type="number" formControlName='cost'>
+    <input type="number" class='input' formControlName='cost'>
   </label>
-  <label>
+  <label class='label'>
     Deposit for refund:
-    <input type="number" formControlName='refundDeposit'>
+    <input type="number" class='input' formControlName='refundDeposit'>
   </label>
-  <label>
+  <label class='label'>
     Name of the center:
-    <input type="text" formControlName='name'>
+    <input type="text" class='input' formControlName='name'>
   </label>
-  <button type="button" (click)='addCenter()'>Add center</button>
+  <button class="button--basic" type="button" (click)='addCenter()'>ADD CENTER</button>
 </div>

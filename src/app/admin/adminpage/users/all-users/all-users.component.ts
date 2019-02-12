@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UsersService } from '../../../../services/users.service';
 
 @Component({
@@ -7,19 +7,18 @@ import { UsersService } from '../../../../services/users.service';
   styleUrls: ['./all-users.component.scss']
 })
 
-export class AllUsersComponent {
+export class AllUsersComponent implements OnInit{
 
   constructor(private server: UsersService) { }
 
+  ngOnInit(){
+      this.server.getUsers()
+        .subscribe( (response) => this.users = response );
+  }
 
   users: Array<any> = [];
   sortedUsers: Array<any> = [];
 
-  getUsers(){
-    this.server.getUsers()
-      .subscribe( (response) => this.users = response );
-
-  }
 
   sortOldFirst() {
     this.users.sort( (a,b) => {
@@ -34,15 +33,11 @@ export class AllUsersComponent {
   }
 
   sortByDateRange(from: string, to: string){
-
     let fromDate = Date.parse(from);
     let toDate = Date.parse(to);
-    console.log(fromDate);
-    console.log(toDate);
-    this.users.forEach( (elem, index, arr) => {
-        if(elem.created_at >= fromDate && elem.created_at <= toDate) this.sortedUsers.push(elem);
+    this.users = this.users.filter( (elem) => {
+        return (elem.created_at >= fromDate && elem.created_at <= toDate);
     });
-    console.log(this.sortedUsers);
   }
 
 }

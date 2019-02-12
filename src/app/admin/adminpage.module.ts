@@ -14,8 +14,8 @@ import { UsersComponent } from './adminpage/users/users.component';
 import { FindUserComponent } from './adminpage/users/find-user/find-user.component';
 import { AllUsersComponent } from './adminpage/users/all-users/all-users.component';
 import { ReservationsComponent } from './adminpage/reservations/reservations.component';
-import { AllReservationsComponent } from './adminpage/reservations/all-reservations/all-reservations.component';
-import { CitiesCentersComponent } from './adminpage/reservations/cities-centers/cities-centers.component';
+import { UserReservationsComponent } from './adminpage/reservations/user-reservations/user-reservations.component';
+import { CommonReservationsComponent } from './adminpage/reservations/common-reservations/common-reservations.component';
 
 import { CitiesService } from '../services/cities.service';
 import { CentersService } from '../services/centers.service';
@@ -35,8 +35,8 @@ import { ReservationsService } from '../services/reservations.service';
     FindUserComponent,
     AllUsersComponent,
     ReservationsComponent,
-    AllReservationsComponent,
-    CitiesCentersComponent
+    UserReservationsComponent,
+    CommonReservationsComponent
   ],
   providers: [
     CitiesService,

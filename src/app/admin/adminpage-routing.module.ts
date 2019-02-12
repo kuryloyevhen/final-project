@@ -12,7 +12,8 @@ import { UsersComponent } from './adminpage/users/users.component';
 import { AllUsersComponent } from './adminpage/users/all-users/all-users.component';
 import { FindUserComponent } from './adminpage/users/find-user/find-user.component';
 import { ReservationsComponent } from './adminpage/reservations/reservations.component';
-import { AllReservationsComponent } from './adminpage/reservations/all-reservations/all-reservations.component';
+import { UserReservationsComponent } from './adminpage/reservations/user-reservations/user-reservations.component';
+import { CommonReservationsComponent } from './adminpage/reservations/common-reservations/common-reservations.component';
 
 const routes: Routes = [
 
@@ -30,8 +31,9 @@ const routes: Routes = [
       { path: 'find-user', component: FindUserComponent }
     ] },
     { path: 'reservations', component: ReservationsComponent, children: [
-      { path: '', redirectTo: 'all-reservations', pathMatch: 'full' },
-      { path: 'all-reservations', component: AllReservationsComponent }
+      { path: '', redirectTo: 'user-reservations', pathMatch: 'full' },
+      { path: 'user-reservations', component: UserReservationsComponent },
+      { path: 'common-reservations', component: CommonReservationsComponent }
     ] }
   ] }
 

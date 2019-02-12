@@ -1,10 +1,15 @@
 
 @import "../../../../variables.scss";
 
+.button--basic {
+  margin-left: 20px;
+}
+
+
 @media screen and (min-width: 1400px){
 
 
-  .reservations {
+  .content {
     padding: $admin-content-padding-laptop;
   }
 
@@ -13,7 +18,7 @@
 
 @media screen and (max-width: 1399px){
 
-  .reservations {
+  .content {
     padding: $admin-content-padding-netbook;
   }
 

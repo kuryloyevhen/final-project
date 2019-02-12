@@ -3,26 +3,26 @@ import { ReservationsService } from '../../../../services/reservations.service';
 
 
 @Component({
-  selector: 'app-all-reservations',
-  templateUrl: './all-reservations.component.html',
-  styleUrls: ['./all-reservations.component.scss']
+  selector: 'app-user-reservations',
+  templateUrl: './user-reservations.component.html',
+  styleUrls: ['./user-reservations.component.scss']
 })
-export class AllReservationsComponent {
+export class UserReservationsComponent {
 
   constructor(private server: ReservationsService) { }
 
   getBookingAll(id: string, status: string = 'all'){
-    this.server.getBooking(id, status)
+    this.server.getBookingByUser(id, status)
       .subscribe( (response) => console.log(response) );
   }
 
   getBookingCompleted(id: string, status: string = 'completed'){
-    this.server.getBooking(id, status)
+    this.server.getBookingByUser(id, status)
       .subscribe( (response) => console.log(response) );
   }
 
   getBookingActive(id: string, status: string = 'active'){
-    this.server.getBooking(id, status)
+    this.server.getBookingByUser(id, status)
       .subscribe( (response) => console.log(response) );
   }
 
