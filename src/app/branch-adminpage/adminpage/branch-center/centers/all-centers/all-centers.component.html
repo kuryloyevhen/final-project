@@ -1,0 +1,15 @@
+<div class="admin-content">
+  <div class="centers-list">
+    <input type="text" #cityName>
+    <button class="button--basic" type="button" (click)='showCenters(cityName.value)'>Show centers</button>
+    <ul>
+      <li *ngFor='let center of centers'>
+        {{center.name}}
+        <button type="button" (click)='removeCenter(center.id)'>Delete</button>
+      </li>
+    </ul>
+  </div>
+  <div class='map' id='map'>
+
+  </div>
+</div>

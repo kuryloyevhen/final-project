@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { RouterGuard } from './services/router-guard';
 
 
 @Component({
@@ -8,7 +9,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  constructor(){}
+  constructor(private routerGuard: RouterGuard){}
 
   title = 'project2';
 

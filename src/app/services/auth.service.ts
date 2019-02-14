@@ -21,8 +21,16 @@ export class AuthService {
     return this.http.post<any>(this.urlSignIn, data);
   }
 
-  refreshToken(data): Observable<any>{
-    return this.http.post<any>(this.urlRT, data);
+  getAccessToken(): string {
+    return localStorage.getItem("access_token");
+  }
+
+  getRefreshToken(): string {
+    return localStorage.getItem("refresh_token");
+  }
+
+  getNewAccessToken(): Observable<any> {
+    return this.http.post<any>(this.urlRT, { "refresh_token": this.getRefreshToken() });
   }
 
 

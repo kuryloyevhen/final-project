@@ -1,0 +1,19 @@
+
+<div class="admin-content">
+  <div class="search">
+    <label>
+      User ID:
+      <input type="text" #userId>
+    </label>
+    <button class="button--basic" type="button" (click)='getBookingAll(userId.value)'>ALL BOOKING</button>
+    <button class="button--basic" type="button" (click)='getBookingActive(userId.value)'>ACTIVE BOOKING</button>
+    <button class="button--basic" type="button" (click)='getBookingCompleted(userId.value)'>COMPLETED BOOKING</button>
+  </div>
+  <div class="booking">
+    <ul class="list">
+      <li class="list-item"></li>
+    </ul>
+  </div>
+
+
+</div>

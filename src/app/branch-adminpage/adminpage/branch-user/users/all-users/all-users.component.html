@@ -1,0 +1,23 @@
+<div class="admin-content">
+  <div class="sort-options">
+    <label>
+      Sort by range:
+      <input type="date" #fromDate>
+      <input type="date" #toDate>
+    </label>
+    <button class="button--basic" type="button" (click)='sortByDateRange(fromDate.value, toDate.value)'>Sort</button>
+  </div>
+  <div class="sort-options">
+    <button class="button--basic" type="button" (click)='sortOldFirst()'>Old first</button>
+    <button class="button--basic" type="button" (click)='sortNewFirst()'>New first</button>
+  </div>
+  <div class="">
+    <ul class="list">
+      <li class="list-item" *ngFor='let user of users'>
+        <h1>Name: {{user.fullName}}</h1>
+        <p>ID: {{user.id}}</p>
+        <p>Date of create: {{user.created_at | date: 'medium'}}</p>
+      </li>
+    </ul>
+  </div>
+</div>

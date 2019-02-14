@@ -1,0 +1,20 @@
+
+<div class="admin-content">
+  <div class="add-city-form" [formGroup]='addCityForm'>
+    <label class="label">
+      City name:<br>
+      <input class="input" type="text" formControlName='city'>
+    </label>
+    <div formGroupName='location'>
+      <label class="label">
+        Latitude:<br>
+        <input class="input" type="text" formControlName='lat'>
+      </label>
+      <label class="label">
+        Longitude:<br>
+        <input class="input" type="text" formControlName='lon'>
+      </label>
+    </div>
+    <button class='button--basic' type="button" (click)='addCity()'>ADD CITY</button>
+  </div>
+</div>

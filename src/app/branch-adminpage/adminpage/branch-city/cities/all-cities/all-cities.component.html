@@ -1,0 +1,10 @@
+<div class="admin-content">
+  <ul>
+    <li *ngFor='let city of cities'>
+      {{city.city}}
+      <button class='button' type="button" (click)='removeCity(city.id)'>
+        <img class='image' src="../../../assets/delete.svg">
+      </button>
+    </li>
+  </ul>
+</div>
