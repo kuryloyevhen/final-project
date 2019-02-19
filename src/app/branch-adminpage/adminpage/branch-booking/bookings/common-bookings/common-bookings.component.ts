@@ -10,9 +10,11 @@ export class CommonBookingsComponent {
 
   constructor(private server: BookingsService) { }
 
+  bookings: Array<any>;
+
   getBookingByCity(city: string){
     this.server.getBookingByCity(city)
-      .subscribe( (response) => console.log(response) );
+      .subscribe( (response) => this.bookings = response );
   }
 
 }

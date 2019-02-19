@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
+import { Cities, City } from '../interfaces/city';
+
 @Injectable()
 
 export class CitiesService {
@@ -13,15 +15,11 @@ export class CitiesService {
   urlCity: string = 'https://0uumsbtgfd.execute-api.eu-central-1.amazonaws.com/Development/v0/cities';
 
 
-  getCities(): Observable<any>{
-    return this.http.get<any>(this.urlCities);
+  getCities(): Observable<Cities>{
+    return this.http.get<Cities>(this.urlCities);
   }
 
-  getCity(id): Observable<any>{
-    return this.http.get<any>(this.urlCity);
-  }
-
-  addCity(data): Observable<any>{
+  addCity(data): Observable<Cities>{
     return this.http.post<any>(this.urlCity, data);
   }
 

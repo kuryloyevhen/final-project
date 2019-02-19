@@ -16,8 +16,8 @@ export class AuthorizationComponent {
               private router: Router) { }
 
   authorizationForm = this.fb.group({
-    email: [''],
-    password: ['']
+    email: ['cms_edu_admin@gmail.com'],
+    password: ['cms_edu_admin']
   });
 
   signIn(){

@@ -1,4 +1,15 @@
 
+.authorization {
+  background-image: url('../../assets/bike-fleet.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .authorization-panel {
   border: 2px solid #32b5e4;
   border-top: 5px solid #32b5e4;

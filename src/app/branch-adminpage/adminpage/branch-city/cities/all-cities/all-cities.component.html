@@ -1,10 +1,18 @@
 <div class="admin-content">
-  <ul>
-    <li *ngFor='let city of cities'>
-      {{city.city}}
+  <div class='content-item' *ngFor='let city of cities' >
+    <h1 class='title h3'>
+      <span class="name" (click)='toggle()'>{{city.city}}</span>
       <button class='button' type="button" (click)='removeCity(city.id)'>
         <img class='image' src="../../../assets/delete.svg">
       </button>
-    </li>
-  </ul>
+    </h1>
+    <div class="details" [@openClosed]="isOpen ? 'open' : 'closed'">
+      <ul class="list">
+        <li class="list-item text">ID: {{city.id}}</li>
+        <li class="list-item text">Longitude: {{city.location.lon}}</li>
+        <li class="list-item text">Latitude: {{city.location.lat}}</li>
+      </ul>
+    </div>
+    <hr>
+  </div>
 </div>

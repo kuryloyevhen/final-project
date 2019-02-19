@@ -1,7 +1,7 @@
 <div class="admin-content">
   <div class="sort-options">
     <label>
-      Sort by range:
+      Sort by date range:
       <input type="date" #fromDate>
       <input type="date" #toDate>
     </label>
@@ -11,13 +11,12 @@
     <button class="button--basic" type="button" (click)='sortOldFirst()'>Old first</button>
     <button class="button--basic" type="button" (click)='sortNewFirst()'>New first</button>
   </div>
-  <div class="">
-    <ul class="list">
-      <li class="list-item" *ngFor='let user of users'>
-        <h1>Name: {{user.fullName}}</h1>
-        <p>ID: {{user.id}}</p>
-        <p>Date of create: {{user.created_at | date: 'medium'}}</p>
-      </li>
+  <div class="user" *ngFor='let user of users'>
+    <ul class="list" >
+      <li class="list-item">Name: {{user.fullName}}</li>
+      <li class="list-item">ID: {{user.id}}</li>
+      <li class="list-item">Date of create: {{user.created_at | date: 'medium'}}</li>
     </ul>
+    <hr>
   </div>
 </div>

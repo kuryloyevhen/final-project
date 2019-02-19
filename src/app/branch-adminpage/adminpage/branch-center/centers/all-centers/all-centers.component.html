@@ -1,15 +1,107 @@
+
 <div class="admin-content">
-  <div class="centers-list">
-    <input type="text" #cityName>
-    <button class="button--basic" type="button" (click)='showCenters(cityName.value)'>Show centers</button>
-    <ul>
-      <li *ngFor='let center of centers'>
-        {{center.name}}
-        <button type="button" (click)='removeCenter(center.id)'>Delete</button>
-      </li>
-    </ul>
-  </div>
-  <div class='map' id='map'>
+  <div class="centers">
+    <div class="search-field">
+      <input class="input" type="text" #cityName >
+      <button class="button--icon" type="button" (click)='showCenters(cityName.value)'>
+        <img class='image' src="../../../assets/search.svg" alt="">
+      </button>
+    </div>
+    <div class="center-item" *ngFor='let center of centers'>
+      <div class="center-title">
+          <h1 class="name" [class.checked]="checkedCenterId == center.id || updateCenterId == center.id"
+            (click)='showCenterInfo(center.id)'> {{center.name}} </h1>
+          <button class="button--icon" type="button" (click)='removeCenter(center.id)'>
+            <img class='image' src="../../../assets/delete.svg">
+          </button>
+          <button class="button--icon" type="button" (click)='toUpdateForm(cityName.value, center.id)'>
+            <img class='image' src="../../../assets/edit.svg">
+          </button>
+      </div>
+      <div class="center-info" *ngIf="checkedCenterId == center.id">
+        <ul class="list">
+          <li class='list-item'>Center ID: {{center.id}}</li>
+          <li class='list-item'>Cost: {{center.cost}}</li>
+          <li class='list-item'>Refund deposit: {{center.refundDeposit}}</li>
+          <li class='list-item'>Location:
+            <ul class='list subsection'>
+              <li class='list-item'>Longityde: {{center.location.lon}}</li>
+              <li class='list-item'>Latitude: {{center.location.lat}}</li>
+            </ul>
+          </li>
+          <li class='list-item'>Available time:
+            <ul class="list subsection">
+              <li class='list-item'>Monday
+                <ul class="list subsection">
+                  <li class='list-item'>Open time: {{center.availableTime.monday.openTime}}</li>
+                  <li class='list-item'>Close time:  {{center.availableTime.monday.closeTime}}</li>
+                </ul>
+              </li>
+              <li class='list-item'>Tuesday
+                <ul class="list subsection">
+                  <li class='list-item'>Open time: {{center.availableTime.tuesday.openTime}}</li>
+                  <li class='list-item'>Close time:  {{center.availableTime.tuesday.closeTime}}</li>
+                </ul>
+              </li>
+              <li class='list-item'>Wednesday
+                <ul class="list subsection">
+                  <li class='list-item'>Open time: {{center.availableTime.wednesday.openTime}}</li>
+                  <li class='list-item'>Close time:  {{center.availableTime.wednesday.closeTime}}</li>
+                </ul>
+              </li>
+              <li class='list-item'>Thursday
+                <ul class="list subsection">
+                  <li class='list-item'>Open time: {{center.availableTime.thursday.openTime}}</li>
+                  <li class='list-item'>Close time:  {{center.availableTime.thursday.closeTime}}</li>
+                </ul>
+              </li>
+              <li class='list-item'>Friday
+                <ul class="list subsection">
+                  <li class='list-item'>Open time: {{center.availableTime.friday.openTime}}</li>
+                  <li class='list-item'>Close time:  {{center.availableTime.friday.closeTime}}</li>
+                </ul>
+              </li>
+              <li class='list-item'>Saturday
+                <ul class="list subsection">
+                  <li class='list-item'>Open time: {{center.availableTime.saturday.openTime}}</li>
+                  <li class='list-item'>Close time:  {{center.availableTime.saturday.closeTime}}</li>
+                </ul>
+              </li>
+              <li class='list-item'>Sunday
+                <ul class="list subsection">
+                  <li class='list-item'>Open time: {{center.availableTime.sunday.openTime}}</li>
+                  <li class='list-item'>Close time:  {{center.availableTime.sunday.closeTime}}</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+
+        </ul>
+
+      </div>
+      <div class="update-center-form" [formGroup]='updateCenterForm' *ngIf="updateCenterId == center.id">
+        <label class="label">
+          <span class="text">Count of bikes:</span>
+          <input class="input" type="number" formControlName='bikesCount'>
+        </label>
+        <label class="label">
+          <span class="text">Cost:</span>
+          <input class="input" type="number" formControlName='cost'>
+        </label>
+        <label class="label">
+          <span class="text">Refund deposit:</span>
+          <input class="input" type="number" formControlName='refundDeposit'>
+        </label>
+        <button type="button" (click)='updateCenter(center.id)'>Update</button>
+      </div>
+      <hr>
+    </div>
 
   </div>
+  <div class='map' id='map' #mapContainer>
+
+  </div>
+
+
+
 </div>

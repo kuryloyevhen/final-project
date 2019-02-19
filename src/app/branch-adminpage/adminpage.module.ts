@@ -7,9 +7,10 @@ import { AdminpageComponent } from './adminpage/adminpage.component';
 
 
 
+
 @NgModule({
   declarations: [
-    AdminpageComponent,
+    AdminpageComponent
   ],
   providers: [],
   imports: [

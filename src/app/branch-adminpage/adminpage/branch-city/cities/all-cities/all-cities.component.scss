@@ -4,6 +4,20 @@
 }
 
 .button .image {
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
+}
+
+.content-item {
+  margin-bottom: 20px;
+}
+
+.name {
+  display: inline-block;
+  width: 100px;
+  text-decoration: underline solid #000;
+}
+
+.title {
+  margin-bottom: 10px;
 }

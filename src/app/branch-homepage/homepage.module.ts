@@ -5,7 +5,9 @@ import { HomepageRoutingModule } from './homepage-routing.module';
 import { HomepageComponent } from './homepage/homepage.component';
 
 @NgModule({
-  declarations: [ HomepageComponent ],
+  declarations: [
+    HomepageComponent
+  ],
   providers: [],
   imports: [
     CommonModule,

@@ -10,7 +10,7 @@ export class FindUserComponent {
 
   constructor(private server: UsersService) { }
 
-  user: Object = {};
+  user: Object;
 
   findUser(name: string = '', id: string = ''){
     this.server.getUsers()
@@ -25,7 +25,9 @@ export class FindUserComponent {
             if(person.id == id) this.user = person;
           };
         };
+        console.log(this.user);
       });
+
   }
 
 }

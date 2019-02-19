@@ -13,7 +13,7 @@ export class AllUsersComponent implements OnInit{
 
   ngOnInit(){
       this.server.getUsers()
-        .subscribe( (response) => this.users = response );
+        .subscribe( (response) =>  this.users = response );
   }
 
   users: Array<any> = [];

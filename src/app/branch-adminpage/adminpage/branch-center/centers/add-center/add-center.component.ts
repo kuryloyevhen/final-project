@@ -59,7 +59,8 @@ export class AddCenterComponent {
     }),
     "cost": [10],
     "refundDeposit": [100],
-    "name": ['']
+    "name": [''],
+    "bikesCount": [0]
   });
 
   addCenter(){

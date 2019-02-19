@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, HostBinding } from '@angular/core';
 import { RouterGuard } from './services/router-guard';
+import { Location } from '@angular/common';
 
 
 @Component({
@@ -9,8 +10,13 @@ import { RouterGuard } from './services/router-guard';
 })
 export class AppComponent {
 
-  constructor(private routerGuard: RouterGuard){}
+  constructor(private routerGuard: RouterGuard,
+              private location: Location) { }
 
   title = 'project2';
 
+  currentPath() {
+    if( window.location.pathname == '/authorization' || window.location.pathname == '/registration') return false;
+    else return true;
+  }
 }

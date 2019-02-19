@@ -10,6 +10,7 @@ import { AddCenterComponent } from './centers/add-center/add-center.component';
 import { CentersService } from '../../../services/centers.service';
 import { CitiesService } from '../../../services/cities.service';
 
+
 @NgModule({
   declarations: [
     CentersComponent,
@@ -18,7 +19,7 @@ import { CitiesService } from '../../../services/cities.service';
   ],
   providers: [
     CentersService,
-    CitiesService 
+    CitiesService
   ],
   imports: [
     CommonModule,

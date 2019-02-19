@@ -26,5 +26,13 @@ $admin-options-top-netbook: $height-main-header-netbook;
 
 /*---   Indents   ---*/
 
-$admin-content-padding-laptop: ($height-main-header-laptop + $height-admin-options + 20px) 0 0 ($width-article-panel-laptop + 20px);
+$admin-content-padding-laptop: ($height-main-header-laptop + $height-admin-options + 20px) 20px 0 ($width-article-panel-laptop + 20px);
 $admin-content-padding-netbook: ($height-main-header-netbook + $height-admin-options + 20px) 0 0 ($width-article-panel-netbook + 20px);
+
+
+/*---   Fonts   ---*/
+
+$text: 16px;
+$h1: 22px;
+$h2: 20px;
+$h3: 18px;

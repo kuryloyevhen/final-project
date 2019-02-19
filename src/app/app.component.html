@@ -1,4 +1,4 @@
-<app-header *ngIf='this.routerGuard.canActivate()'></app-header>
+<app-navigation *ngIf="currentPath()"></app-navigation>
 
 
 <router-outlet></router-outlet>

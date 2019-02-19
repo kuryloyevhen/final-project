@@ -1,4 +1,21 @@
 
-.button--basic {
-  margin-left: 20px;
+.search {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.label {
+  margin-right: 10px;
+}
+
+.booking--active {
+  background-color: #00FF00;
+}
+
+.booking--confirmed {
+  background-color: #FFFF00;
+}
+
+.booking--completed {
+  background-color: #C0C0C0;
 }

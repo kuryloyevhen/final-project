@@ -1,20 +1,21 @@
-<div class="authorization-panel" >
-  <header class="header">
-    <h2 class='subtitle'>Login to your acount</h2>
-  </header>
-  <div class="main" [formGroup]='authorizationForm'>
-    <label class='label'>
-      Enter email:
-      <input class="input" type="email" formControlName='email' >
-    </label>
-    <label class='label'>
-      Enter password:
-      <input class="input" type="password" formControlName='password' >
-    </label>
+<div class="authorization">
+  <div class="authorization-panel" >
+    <header class="header">
+      <h2 class='subtitle'>Login to your acount</h2>
+    </header>
+    <div class="main" [formGroup]='authorizationForm'>
+      <label class='label'>
+        Enter email:
+        <input class="input" type="email" formControlName='email' >
+      </label>
+      <label class='label'>
+        Enter password:
+        <input class="input" type="password" formControlName='password' >
+      </label>
+    </div>
+    <footer class="footer">
+      <button class="button" type="button" (click)='signIn()'>SIGN IN</button><br><br>
+      <a class='link' routerLink='../registration'>I don't have an account</a>
+    </footer>
   </div>
-  <footer class="footer">
-    <button class="button" type="button" (click)='signIn()'>SIGN IN</button><br><br>
-    <a class='link' routerLink='../registration'>I don't have an account</a>
-  </footer>
-
 </div>

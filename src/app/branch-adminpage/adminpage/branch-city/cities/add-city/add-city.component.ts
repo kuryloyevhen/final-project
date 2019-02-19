@@ -22,7 +22,7 @@ export class AddCityComponent {
 
 
 
-  addCity(){
+  addCity() {
     this.server.addCity(this.addCityForm.value)
       .subscribe( (response) => {
         console.log(response);

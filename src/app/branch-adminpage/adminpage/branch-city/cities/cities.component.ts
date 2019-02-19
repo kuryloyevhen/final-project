@@ -12,12 +12,7 @@ export class CitiesComponent {
 
   city: Object = {};
 
-  getCity(id){
-    this.server.getCity(id)
-      .subscribe( (response) => {
-        console.log(response);
-      } );
-  }
+  
 
 
 

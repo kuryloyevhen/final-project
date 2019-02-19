@@ -1,4 +1,15 @@
 
-.button--basic {
-  margin-left: 10px;
+.search-field {
+  display: flex;
+  flex-flow: row nowrap;
+  width: 100%;
+}
+
+
+.label {
+  margin-right: 10px;
+}
+
+.list-item {
+  margin-bottom: 10px;
 }

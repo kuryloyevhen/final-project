@@ -2,11 +2,27 @@
 <div class="admin-content">
   <div class="add-center-form" [formGroup]='addCenterForm'>
     <label class='label'>
-      City name:<br>
+      City name:
       <input type="text" class='input' formControlName='city'>
     </label>
+    <label class='label'>
+      Cost for one bike:
+      <input type="number" class='input' formControlName='cost'>
+    </label>
+    <label class='label'>
+      Deposit for refund:
+      <input type="number" class='input' formControlName='refundDeposit'>
+    </label>
+    <label class='label'>
+      Name of the center:
+      <input type="text" class='input' formControlName='name'>
+    </label>
+    <label>
+      Count of bikes:
+      <input type="number" formControlName='bikesCount'>
+    </label>
     <div class="section" formGroupName='location'>
-      <h1 class="title">Location</h1>
+      <h1 class="title h3">Location</h1>
       <label class='label'>
         Longitude:
         <input type="text" class='input' formControlName='lon'>
@@ -20,10 +36,10 @@
         <input type="text" class='input' formControlName='address'>
       </label>
     </div>
-    <div class="section" formGroupName='availableTime'>
-      <h1 class="title">Available Time</h1>
+    <div class="section time" formGroupName='availableTime'>
+      <h1 class="title h3">Available Time</h1>
       <div class="subsection" formGroupName='monday'>
-        <h2>Monday</h2>
+        <h2 class='subtitle'>Monday</h2>
         <label class='label'>
           Open time:
           <input type="text" class='input' formControlName='openTime'>
@@ -36,7 +52,7 @@
         <input type="radio" formControlName='isOpen'>
       </div>
       <div class="subsection" formGroupName='tuesday'>
-        <h2>Tuesday</h2>
+        <h2 class='subtitle'>Tuesday</h2>
         <label class='label'>
           Open time:
           <input type="text" class='input' formControlName='openTime'>
@@ -49,7 +65,7 @@
         <input type="radio" formControlName='isOpen'>
       </div>
       <div class="subsection" formGroupName='wednesday'>
-        <h2>Wednesday</h2>
+        <h2 class='subtitle'>Wednesday</h2>
         <label class='label'>
           Open time:
           <input type="text" class='input' formControlName='openTime'>
@@ -62,7 +78,7 @@
         <input type="radio" formControlName='isOpen'>
       </div>
       <div class="subsection" formGroupName='thuesday'>
-        <h2>Thursday</h2>
+        <h2 class='subtitle'>Thursday</h2>
         <label class='label'>
           Open time:
           <input type="text" class='input' formControlName='openTime'>
@@ -75,7 +91,7 @@
         <input type="radio" formControlName='isOpen'>
       </div>
       <div class="subsection" formGroupName='friday'>
-        <h2>Friday</h2>
+        <h2 class='subtitle'>Friday</h2>
         <label class='label'>
           Open time:
           <input type="text" class='input' formControlName='openTime'>
@@ -88,7 +104,7 @@
         <input type="radio" formControlName='isOpen'>
       </div>
       <div class="subsection" formGroupName='saturday'>
-        <h2>Saturday</h2>
+        <h2 class='subtitle'>Saturday</h2>
         <label class='label'>
           Open time:
           <input type="text" class='input' formControlName='openTime'>
@@ -101,7 +117,7 @@
         <input type="radio" formControlName='isOpen'>
       </div>
       <div class="subsection" formGroupName='sunday'>
-        <h2>Sunday</h2>
+        <h2 class='subtitle'>Sunday</h2>
         <label class='label'>
           Open time:
           <input type="text" class='input' formControlName='openTime'>
@@ -114,18 +130,7 @@
         <input type="radio" formControlName='isOpen'>
       </div>
     </div>
-    <label class='label'>
-      Cost for one bike:
-      <input type="number" class='input' formControlName='cost'>
-    </label>
-    <label class='label'>
-      Deposit for refund:
-      <input type="number" class='input' formControlName='refundDeposit'>
-    </label>
-    <label class='label'>
-      Name of the center:
-      <input type="text" class='input' formControlName='name'>
-    </label>
+
     <button class="button--basic" type="button" (click)='addCenter()'>ADD CENTER</button>
   </div>
 </div>

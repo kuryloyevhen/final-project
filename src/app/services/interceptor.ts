@@ -8,9 +8,7 @@ import { AuthService } from './auth.service';
 
 export class Interceptor implements HttpInterceptor {
 
-  constructor(private auth: AuthService,
-              public inj: Injector,
-              public loadInject: Injector) {}
+  constructor(private auth: AuthService) {}
 
   private applyCredentials = (req: HttpRequest<any>, token: string) => {
     return req.clone({
@@ -19,38 +17,18 @@ export class Interceptor implements HttpInterceptor {
   }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    const auth = this.inj.get(AuthService);
-    const authReq = this.applyCredentials(req, auth.getAccessToken());
+    const authReq = this.applyCredentials(req, this.auth.getAccessToken());
     return next.handle(authReq).pipe(
-      map((event: HttpEvent<any>) => {
-        if (event instanceof HttpResponse){
-          return event;
-        }
-      }),
-      catchError((error: any): Observable<any> => {
-        if (error instanceof HttpErrorResponse){
-          if (error.status === 403) {
-            return auth.getNewAccessToken()
-              .pipe(mergeMap((res) => {
-                localStorage.setItem('access_token', (res as any).access_token);
-                return next.handle(this.applyCredentials(req, auth.getAccessToken()))
-              }));
+      catchError( (error): Observable<any> => {
+          if ( error.status === 403 ) {
+            return this.auth.getNewAccessToken()
+              .pipe(mergeMap((res: any): Observable<any> => {
+                localStorage.setItem('access_token', (res).access_token)
+                return next.handle(this.applyCredentials(req, this.auth.getAccessToken()));
+              }))
 
             }
 
-          }
-        } )
-    )
-}
-
-
-
-
-
-
-/* return auth.getNewAccessToken()
-  .pipe(mergeMap((res) => {
-    localStorage.setItem('access_token', (res as any).access_token);
-    return next.handle(this.applyCredentials(req, auth.getAccessToken()))
-  })); */
+          }));
+        }
 }

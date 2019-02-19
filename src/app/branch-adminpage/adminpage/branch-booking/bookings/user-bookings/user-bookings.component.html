@@ -1,17 +1,26 @@
 
 <div class="admin-content">
   <div class="search">
-    <label>
+    <label class="label">
       User ID:
       <input type="text" #userId>
     </label>
-    <button class="button--basic" type="button" (click)='getBookingAll(userId.value)'>ALL BOOKING</button>
-    <button class="button--basic" type="button" (click)='getBookingActive(userId.value)'>ACTIVE BOOKING</button>
-    <button class="button--basic" type="button" (click)='getBookingCompleted(userId.value)'>COMPLETED BOOKING</button>
+    <button class="button--icon" type="button" (click)='getBookingAll(userId.value)'>
+      <img class='image' src="../../../assets/search.svg" alt="">
+    </button>
   </div>
-  <div class="booking">
+  <div class="filters">
+    <button class="button--filter" [class.button--filter--checked]="checked == 'all' " type="button" (click)='getBookingAll(userId.value)'>ALL</button>
+    <button class="button--filter" [class.button--filter--checked]="checked == 'active' "type="button" (click)='getBookingActive(userId.value)'>ACTIVE</button>
+    <button class="button--filter" [class.button--filter--checked]="checked == 'completed' "type="button" (click)='getBookingCompleted(userId.value)'>COMPLETED</button>
+  </div>
+
+
+  <div class="booking" *ngFor='let item of bookings'>
     <ul class="list">
-      <li class="list-item"></li>
+      <li class='list-item'>{{item.id}}</li>
+      <li class='list-item'>{{item.city}}</li>
+      <li class='list-item'>{{item.centerId}}</li>
     </ul>
   </div>
 
