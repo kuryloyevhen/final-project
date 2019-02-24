@@ -1,24 +1,23 @@
 
 <div class="admin-content">
   <div class="search">
-    <label class="label">
-      City:
-      <input type="text" #cityName>
-    </label>
+    <mat-form-field class="input">
+      <input matInput placeholder="City name" type="text" #cityName>
+    </mat-form-field>
     <button type="button" class="button--icon" (click)='getBookingByCity(cityName.value)'>
       <img class='image' src="../../../assets/search.svg" alt="">
     </button>
   </div>
-  <div class="booking" *ngFor='let item of bookings'>
-    <ul [class.booking--active]="item.status == 'active'"
-        [class.booking--confirmed]="item.status == 'confirmed'"
-        [class.booking--completed]="item.status == 'completed'">
-      <li>Booking status: {{item.status}}</li>
-      <li>User ID: {{item.userId}}</li>
-      <li>Booking ID: {{item.id}}</li>
-      <li>Start date: {{item.startTime | date: 'medium'}}</li>
-      <li>End date: {{item.endTime | date: 'medium'}}</li>
-    </ul>
-    <hr>
+  <div class="booking" *ngFor='let booking of bookings'>
+    <mat-list [class.booking--active]="booking.status == 'active'"
+        [class.booking--confirmed]="booking.status == 'confirmed'"
+        [class.booking--completed]="booking.status == 'completed'">
+      <mat-list-item>Booking status: {{booking.status}}</mat-list-item>
+      <mat-list-item>User ID: {{booking.userId}}</mat-list-item>
+      <mat-list-item>Booking ID: {{booking.id}}</mat-list-item>
+      <mat-list-item>Start date: {{booking.startTime | date: 'medium'}}</mat-list-item>
+      <mat-list-item *ngIf='booking.endTime'>End date: {{booking.endTime | date: 'medium'}}</mat-list-item>
+      <mat-divider></mat-divider>
+    </mat-list>
   </div>
 </div>

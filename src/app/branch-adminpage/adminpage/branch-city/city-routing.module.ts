@@ -7,6 +7,7 @@ import { AddCityComponent } from './cities/add-city/add-city.component';
 
 const routes: Routes = [
   { path: '', component: CitiesComponent, children: [
+    { path: '', redirectTo: 'all-cities', pathMatch: 'full' },
     { path: 'all-cities', component: AllCitiesComponent },
     { path: 'add-city', component: AddCityComponent }
   ] }

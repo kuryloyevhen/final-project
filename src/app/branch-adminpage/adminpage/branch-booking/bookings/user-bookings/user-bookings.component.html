@@ -1,27 +1,36 @@
 
 <div class="admin-content">
   <div class="search">
-    <label class="label">
-      User ID:
-      <input type="text" #userId>
-    </label>
+    <mat-form-field class="input">
+      <input matInput placeholder="User ID" type="text" #userId>
+    </mat-form-field>
     <button class="button--icon" type="button" (click)='getBookingAll(userId.value)'>
-      <img class='image' src="../../../assets/search.svg" alt="">
+      <img class='image' src="../../../assets/search.svg">
     </button>
   </div>
   <div class="filters">
-    <button class="button--filter" [class.button--filter--checked]="checked == 'all' " type="button" (click)='getBookingAll(userId.value)'>ALL</button>
-    <button class="button--filter" [class.button--filter--checked]="checked == 'active' "type="button" (click)='getBookingActive(userId.value)'>ACTIVE</button>
-    <button class="button--filter" [class.button--filter--checked]="checked == 'completed' "type="button" (click)='getBookingCompleted(userId.value)'>COMPLETED</button>
+    <button class="btn" mat-stroked-button [class.btn--primary] = "checked == 'all'" type="button" (click)='getBookingAll(userId.value)'
+    >
+      All</button>
+    <button class="btn" mat-stroked-button [class.btn--primary] = "checked == 'active' "type="button" (click)='getBookingActive(userId.value)'
+    >Active</button>
+    <button class="btn" mat-stroked-button [class.btn--primary] = "checked == 'completed' "type="button" (click)='getBookingCompleted(userId.value)'
+    >Completed</button>
   </div>
 
 
-  <div class="booking" *ngFor='let item of bookings'>
-    <ul class="list">
-      <li class='list-item'>{{item.id}}</li>
-      <li class='list-item'>{{item.city}}</li>
-      <li class='list-item'>{{item.centerId}}</li>
-    </ul>
+  <div class="booking" *ngFor='let booking of bookings'>
+    <mat-list [class.booking--active]="booking.status == 'active' && checked == 'all'"
+              [class.booking--confirmed]="booking.status == 'confirmed' && checked == 'all'"
+              [class.booking--completed]="booking.status == 'completed' && checked == 'all'">
+      <mat-list-item class='list-item'>Booking ID: {{booking.id}}</mat-list-item>
+      <mat-list-item class='list-item'>City: {{booking.city}}</mat-list-item>
+      <mat-list-item class='list-item'>Center ID: {{booking.centerId}}</mat-list-item>
+      <mat-list-item class='list-item'>Status: {{booking.status}}</mat-list-item>
+      <mat-list-item>Start date: {{booking.startTime | date: 'medium'}}</mat-list-item>
+      <mat-list-item *ngIf='booking.endTime'>End date: {{booking.endTime | date: 'medium'}}</mat-list-item>
+      <mat-divider></mat-divider>
+    </mat-list>
   </div>
 
 

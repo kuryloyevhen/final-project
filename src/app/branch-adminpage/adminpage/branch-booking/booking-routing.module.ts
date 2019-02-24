@@ -7,6 +7,7 @@ import { CommonBookingsComponent } from './bookings/common-bookings/common-booki
 
 const routes: Routes = [
   { path: '', component: BookingsComponent, children: [
+    { path: '', redirectTo: 'user-bookings', pathMatch: 'full' },
     { path: 'user-bookings', component: UserBookingsComponent },
     { path: 'common-bookings', component: CommonBookingsComponent }
   ] }

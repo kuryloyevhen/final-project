@@ -1,136 +1,128 @@
 
 <div class="admin-content">
-  <div class="add-center-form" [formGroup]='addCenterForm'>
-    <label class='label'>
-      City name:
-      <input type="text" class='input' formControlName='city'>
-    </label>
-    <label class='label'>
-      Cost for one bike:
-      <input type="number" class='input' formControlName='cost'>
-    </label>
-    <label class='label'>
-      Deposit for refund:
-      <input type="number" class='input' formControlName='refundDeposit'>
-    </label>
-    <label class='label'>
-      Name of the center:
-      <input type="text" class='input' formControlName='name'>
-    </label>
-    <label>
-      Count of bikes:
-      <input type="number" formControlName='bikesCount'>
-    </label>
+  <form class="add-center-form" [formGroup]='addCenterForm'>
+    <mat-form-field class='option'>
+      <input matInput placeholder="City name" type="text" formControlName='city'>
+    </mat-form-field>
+    <mat-form-field class='option'>
+      <input matInput placeholder="Bike cost" type="text" formControlName='cost'>
+    </mat-form-field>
+    <mat-form-field class='option'>
+      <input matInput placeholder="Refund deposit" type="text" formControlName='refundDeposit'>
+    </mat-form-field>
+    <mat-form-field class='option'>
+      <input matInput placeholder="Center name" type="text" formControlName='name'>
+    </mat-form-field>
+    <mat-form-field class='option'>
+      <input matInput placeholder="Bikes count" type="text" formControlName='bikesCount'>
+    </mat-form-field>
     <div class="section" formGroupName='location'>
-      <h1 class="title h3">Location</h1>
-      <label class='label'>
-        Longitude:
-        <input type="text" class='input' formControlName='lon'>
-      </label>
-      <label class="label">
-        Latitude:
-        <input type="text" class='input' formControlName='lat'>
-      </label>
-      <label class="label">
-        Address:
-        <input type="text" class='input' formControlName='address'>
-      </label>
+      <h1 class="title">Location</h1>
+      <mat-form-field class='option'>
+        <input matInput placeholder="Longitude" type="text" formControlName='lon'>
+      </mat-form-field>
+      <mat-form-field class='option'>
+        <input matInput placeholder="Latitude" type="text" formControlName='lat'>
+      </mat-form-field>
+      <mat-form-field class='option'>
+        <input matInput placeholder="Address" type="text" formControlName='address'>
+      </mat-form-field>
     </div>
-    <div class="section time" formGroupName='availableTime'>
-      <h1 class="title h3">Available Time</h1>
+    <div class="multi-section" formGroupName='availableTime'>
+      <h1 class="title">Available Time</h1>
       <div class="subsection" formGroupName='monday'>
-        <h2 class='subtitle'>Monday</h2>
-        <label class='label'>
-          Open time:
-          <input type="text" class='input' formControlName='openTime'>
+        <h2 class='title'>Monday</h2>
+        <mat-form-field class='input'>
+          <input matInput placeholder="Open time" type="text" formControlName='openTime'>
+        </mat-form-field>
+        <mat-form-field class='input'>
+          <input matInput placeholder="Close time" type="text" formControlName='closeTime'>
+        </mat-form-field>
+        <label>
+          Closed
+          <input class="radio" type="radio" value='true' formControlName='isOpen'>
         </label>
-        <label class='label'>
-          Close time:
-          <input type="text" class='input' formControlName='closeTime'>
-        </label>
-        Closed:
-        <input type="radio" formControlName='isOpen'>
       </div>
       <div class="subsection" formGroupName='tuesday'>
-        <h2 class='subtitle'>Tuesday</h2>
-        <label class='label'>
-          Open time:
-          <input type="text" class='input' formControlName='openTime'>
+        <h2 class='title'>Tuesday</h2>
+        <mat-form-field class='input'>
+          <input matInput placeholder="Open time" type="text" formControlName='openTime'>
+        </mat-form-field>
+        <mat-form-field class='input'>
+          <input matInput placeholder="Close time" type="text" formControlName='closeTime'>
+        </mat-form-field>
+        <label>
+          Closed
+          <input class="radio" type="radio" value='true' formControlName='isOpen'>
         </label>
-        <label class='label'>
-          Close time:
-          <input type="text" class='input' formControlName='closeTime'>
-        </label>
-        Closed:
-        <input type="radio" formControlName='isOpen'>
       </div>
       <div class="subsection" formGroupName='wednesday'>
-        <h2 class='subtitle'>Wednesday</h2>
-        <label class='label'>
-          Open time:
-          <input type="text" class='input' formControlName='openTime'>
+        <h2 class='title'>Wednesday</h2>
+        <mat-form-field class='input'>
+          <input matInput placeholder="Open time" type="text" formControlName='openTime'>
+        </mat-form-field>
+        <mat-form-field class='input'>
+          <input matInput placeholder="Close time" type="text" formControlName='closeTime'>
+        </mat-form-field>
+        <label>
+          Closed
+          <input class="radio" type="radio" value='true' formControlName='isOpen'>
         </label>
-        <label class='label'>
-          Close time:
-          <input type="text" class='input' formControlName='closeTime'>
-        </label>
-        Closed:
-        <input type="radio" formControlName='isOpen'>
+
       </div>
-      <div class="subsection" formGroupName='thuesday'>
-        <h2 class='subtitle'>Thursday</h2>
-        <label class='label'>
-          Open time:
-          <input type="text" class='input' formControlName='openTime'>
+      <div class="subsection" formGroupName='thursday'>
+        <h2 class='title'>Thursday</h2>
+        <mat-form-field class='input'>
+          <input matInput placeholder="Open time" type="text" formControlName='openTime'>
+        </mat-form-field>
+        <mat-form-field class='input'>
+          <input matInput placeholder="Close time" type="text" formControlName='closeTime'>
+        </mat-form-field>
+        <label>
+          Closed
+          <input class="radio" type="radio" value='true' formControlName='isOpen'>
         </label>
-        <label class='label'>
-          Close time:
-          <input type="text" class='input' formControlName='closeTime'>
-        </label>
-        Closed:
-        <input type="radio" formControlName='isOpen'>
       </div>
       <div class="subsection" formGroupName='friday'>
-        <h2 class='subtitle'>Friday</h2>
-        <label class='label'>
-          Open time:
-          <input type="text" class='input' formControlName='openTime'>
+        <h2 class='title'>Friday</h2>
+        <mat-form-field class='input'>
+          <input matInput placeholder="Open time" type="text" formControlName='openTime'>
+        </mat-form-field>
+        <mat-form-field class='input'>
+          <input matInput placeholder="Close time" type="text" formControlName='closeTime'>
+        </mat-form-field>
+        <label>
+          Closed
+          <input class="radio" type="radio" value='true' formControlName='isOpen'>
         </label>
-        <label class='label'>
-          Close time:
-          <input type="text" class='input' formControlName='closeTime'>
-        </label>
-        Closed:
-        <input type="radio" formControlName='isOpen'>
       </div>
       <div class="subsection" formGroupName='saturday'>
-        <h2 class='subtitle'>Saturday</h2>
-        <label class='label'>
-          Open time:
-          <input type="text" class='input' formControlName='openTime'>
+        <h2 class='title'>Saturday</h2>
+        <mat-form-field class='input'>
+          <input matInput placeholder="Open time" type="text" formControlName='openTime'>
+        </mat-form-field>
+        <mat-form-field class='input'>
+          <input matInput placeholder="Close time" type="text" formControlName='closeTime'>
+        </mat-form-field>
+        <label>
+          Closed
+          <input class="radio" type="radio" value='true' formControlName='isOpen'>
         </label>
-        <label class='label'>
-          Close time:
-          <input type="text" class='input' formControlName='closeTime'>
-        </label>
-        Closed:
-        <input type="radio" formControlName='isOpen'>
       </div>
       <div class="subsection" formGroupName='sunday'>
-        <h2 class='subtitle'>Sunday</h2>
-        <label class='label'>
-          Open time:
-          <input type="text" class='input' formControlName='openTime'>
+        <h2 class='title'>Sunday</h2>
+        <mat-form-field class='input'>
+          <input matInput placeholder="Open time" type="text" formControlName='openTime'>
+        </mat-form-field>
+        <mat-form-field class='input'>
+          <input matInput placeholder="Close time" type="text" formControlName='closeTime'>
+        </mat-form-field>
+        <label>
+          Closed
+          <input class="radio" type="radio" value='true' formControlName='isOpen'>
         </label>
-        <label class='label'>
-          Close time:
-          <input type="text" class='input' formControlName='closeTime'>
-        </label>
-        Closed:
-        <input type="radio" formControlName='isOpen'>
       </div>
     </div>
-
-    <button class="button--basic" type="button" (click)='addCenter()'>ADD CENTER</button>
-  </div>
+    <button class="btn" mat-raised-button color="primary" type="button" (click)='addCenter()'>ADD CENTER</button>
+  </form>
 </div>

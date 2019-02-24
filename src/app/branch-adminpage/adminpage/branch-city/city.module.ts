@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatExpansionModule } from '@angular/material/expansion';
 import { CityRoutingModule } from './city-routing.module';
 
 import { CitiesComponent } from './cities/cities.component';
@@ -19,7 +22,10 @@ import { CitiesService } from '../../../services/cities.service';
   imports: [
     CommonModule,
     CityRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatInputModule,
+    MatButtonModule,
+    MatExpansionModule
   ]
 })
 

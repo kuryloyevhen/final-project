@@ -7,6 +7,7 @@ import { AddCenterComponent } from './centers/add-center/add-center.component';
 
 const routes: Routes = [
   { path: '', component: CentersComponent, children: [
+    { path: '', redirectTo: 'all-centers', pathMatch: 'full' },
     { path: 'all-centers', component: AllCentersComponent },
     { path: 'add-center', component: AddCenterComponent }
   ] }

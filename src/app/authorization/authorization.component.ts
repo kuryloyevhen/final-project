@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
+import * as Rx from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 import { AuthService } from '../services/auth.service';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -9,25 +11,34 @@ import { Router } from '@angular/router';
   styleUrls: ['./authorization.component.scss']
 })
 
-export class AuthorizationComponent {
+export class AuthorizationComponent implements OnDestroy {
 
   constructor(private fb: FormBuilder,
               private auth: AuthService,
               private router: Router) { }
 
+  private unsubscribe: Rx.Subject<void> = new Rx.Subject();
+
   authorizationForm = this.fb.group({
-    email: ['cms_edu_admin@gmail.com'],
-    password: ['cms_edu_admin']
+    email: ['', Validators.compose([Validators.email, Validators.required])],
+    password: ['', Validators.required]
   });
 
   signIn(){
-    this.auth.signIn(this.authorizationForm.value)
-      .subscribe( (response) => {
-        console.log(response);
-        localStorage.setItem("access_token", response.access_token);
-        localStorage.setItem("refresh_token", response.Item.refresh_token);
-        this.router.navigate(['homepage']);
-      });
+    if(this.authorizationForm.valid){
+      this.auth.signIn(this.authorizationForm.value).pipe(takeUntil(this.unsubscribe))
+        .subscribe( (response) => {
+          localStorage.setItem("access_token", response.access_token);
+          localStorage.setItem("refresh_token", response.Item.refresh_token);
+          this.router.navigate(['homepage']);
+        });
+    }
+
+  }
+
+  ngOnDestroy() {
+    this.unsubscribe.next();
+    this.unsubscribe.complete();
   }
 
 

@@ -1,0 +1,17 @@
+
+<form class="update-center-form" [formGroup]='updateCenterForm'>
+  <mat-form-field class="input">
+    <input matInput placeholder="Bikes count" type="number" formControlName='bikesCount'>
+  </mat-form-field>
+  <mat-form-field class="input">
+    <input matInput placeholder="Cost" type="number" formControlName='cost'>
+  </mat-form-field>
+  <mat-form-field class="input">
+    <input matInput placeholder="Refund deposit" type="number" formControlName='refundDeposit'>
+  </mat-form-field>
+  <div class="btn-group">
+    <button mat-raised-button color="primary" type="button" (click)='updateCenter()'>Update</button>
+    <button mat-raised-button color="primary" [mat-dialog-close] = 'true' type="button">Close</button>
+  </div>
+
+</form>

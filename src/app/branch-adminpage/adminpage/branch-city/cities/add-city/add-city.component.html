@@ -1,22 +1,19 @@
 
 <div class="admin-content">
-    <div class="add-city-form" [formGroup]='addCityForm'>
-      <label class="label">
-        <span class="field-name text">City name:</span>
-        <input class="input" type="text" formControlName='city'>
-      </label>
+    <form class="add-city-form" [formGroup]='addCityForm'>
+      <mat-form-field class="input">
+        <input matInput placeholder = 'City name' class="input" formControlName='city'>
+      </mat-form-field>
       <div formGroupName='location'>
         <h2 class="title h3">Location</h2>
-        <label class="label">
-          <span class="field-name text">Latitude:</span>
-          <input class="input" type="text" formControlName='lat'>
-        </label>
-        <label class="label">
-          <span class="field-name text">Longitude:</span>
-          <input class="input" type="text" formControlName='lon'>
-        </label>
+        <mat-form-field class="input">
+          <input matInput placeholder = 'Latitude' class="input" formControlName='lat'>
+        </mat-form-field>
+        <mat-form-field class="input">
+          <input matInput placeholder = 'Longitude' class="input" formControlName='lon'>
+        </mat-form-field>
       </div>
-      <button class='button--basic' type="button" (click)='addCity()'>ADD CITY</button>
-    </div>
+      <button class="btn" mat-raised-button color="primary" (click)='addCity()'>Add city</button>
+    </form>
 
 </div>

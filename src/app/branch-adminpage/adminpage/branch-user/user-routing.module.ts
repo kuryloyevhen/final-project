@@ -8,6 +8,7 @@ import { FindUserComponent } from './users/find-user/find-user.component';
 
 const routes: Routes = [
   { path: '', component: UsersComponent, children: [
+    { path: '', redirectTo: 'all-users', pathMatch: 'full' },
     { path: 'all-users', component: AllUsersComponent },
     { path: 'find-user', component: FindUserComponent }
   ] }

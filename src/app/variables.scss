@@ -3,6 +3,7 @@
 
 $height-main-header-laptop: 60px;
 $height-main-header-netbook: 40px;
+$height-article-panel-mobile: 40px;
 
 $width-article-panel-laptop: 250px;
 $width-logo-container-laptop: $width-article-panel-laptop;
@@ -21,6 +22,9 @@ $admin-options-left-laptop: $width-article-panel-laptop;
 $admin-options-left-netbook: $width-article-panel-netbook;
 $admin-options-top-laptop: $height-main-header-laptop;
 $admin-options-top-netbook: $height-main-header-netbook;
+$admin-options-top-mobile: $height-main-header-netbook + $height-article-panel-mobile;
+
+
 
 
 
@@ -28,6 +32,7 @@ $admin-options-top-netbook: $height-main-header-netbook;
 
 $admin-content-padding-laptop: ($height-main-header-laptop + $height-admin-options + 20px) 20px 0 ($width-article-panel-laptop + 20px);
 $admin-content-padding-netbook: ($height-main-header-netbook + $height-admin-options + 20px) 0 0 ($width-article-panel-netbook + 20px);
+$admin-content-padding-mobile: ($height-main-header-netbook + $height-admin-options + $height-article-panel-mobile + 10px) 10px 0 10px;
 
 
 /*---   Fonts   ---*/

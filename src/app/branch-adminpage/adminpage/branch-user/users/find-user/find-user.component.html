@@ -2,13 +2,12 @@
 <div class="admin-content">
 
     <div class="search-field">
-      <mat-form-field class="example-full-width">
-        <input matInput placeholder="User name" value='Helen' type="text" #name>
+      <mat-form-field class="input">
+        <input matInput placeholder="User name" type="text" #name>
       </mat-form-field>
-      <label class="label">
-        User ID:
-        <input type="text" #id>
-      </label>
+      <mat-form-field class="input">
+        <input matInput placeholder="User ID" type="text" #id>
+      </mat-form-field>
       <button class='button--icon' type="button" (click)='findUser(name.value, id.value)'>
         <img class='image' src="../../../assets/search.svg" alt="">
       </button>
@@ -16,12 +15,12 @@
 
 
   <div class="user-info" *ngIf='user'>
-    <ul class="list">
-      <li class="list-item">Fullname: {{user.fullName}}</li>
-      <li class="list-item">ID: {{user.id}}</li>
-      <li class="list-item">Password: {{user.password}}</li>
-      <li class="list-item">Email: {{user.email}}</li>
-      <li class="list-item">Date of create: {{user.created_at | date: 'medium'}}</li>
-    </ul>
+    <mat-list class="list">
+      <mat-list-item class="list-item name">Name: {{user.fullName}}</mat-list-item>
+      <mat-list-item class="list-item">ID: {{user.id}}</mat-list-item>
+      <mat-list-item class="list-item">Password: {{user.password}}</mat-list-item>
+      <mat-list-item class="list-item">Email: {{user.email}}</mat-list-item>
+      <mat-list-item class="list-item">Date of create: {{user.created_at | date: 'medium'}}</mat-list-item>
+    </mat-list>
   </div>
 </div>

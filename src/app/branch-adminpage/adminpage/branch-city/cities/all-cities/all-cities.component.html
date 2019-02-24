@@ -1,18 +1,19 @@
 <div class="admin-content">
-  <div class='content-item' *ngFor='let city of cities' >
-    <h1 class='title h3'>
-      <span class="name" (click)='toggle()'>{{city.city}}</span>
-      <button class='button' type="button" (click)='removeCity(city.id)'>
-        <img class='image' src="../../../assets/delete.svg">
-      </button>
-    </h1>
-    <div class="details" [@openClosed]="isOpen ? 'open' : 'closed'">
+    <mat-expansion-panel class="city" *ngFor='let city of cities' class='city-item' hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title class="name">
+          {{city.city}}
+        </mat-panel-title>
+        <mat-panel-description>
+          <button class='button--icon' type="button" (click)='removeCity(city.id)'>
+            <img class='image' src="../../../assets/delete.svg">
+          </button>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
       <ul class="list">
         <li class="list-item text">ID: {{city.id}}</li>
         <li class="list-item text">Longitude: {{city.location.lon}}</li>
         <li class="list-item text">Latitude: {{city.location.lat}}</li>
       </ul>
-    </div>
-    <hr>
-  </div>
+    </mat-expansion-panel>
 </div>

@@ -4,10 +4,10 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
+import { MatInputModule, MatButtonModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { AuthorizationComponent } from './authorization/authorization.component';
-import { RegistrationComponent } from './registration/registration.component';
 import { NavigationComponent } from './navigation/navigation.component';
 
 import { Interceptor } from './services/interceptor';
@@ -18,7 +18,6 @@ import { RouterGuard } from './services/router-guard';
   declarations: [
     AppComponent,
     AuthorizationComponent,
-    RegistrationComponent,
     NavigationComponent
   ],
   imports: [
@@ -26,7 +25,9 @@ import { RouterGuard } from './services/router-guard';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatInputModule,
+    MatButtonModule
   ],
   providers: [
     AuthService,

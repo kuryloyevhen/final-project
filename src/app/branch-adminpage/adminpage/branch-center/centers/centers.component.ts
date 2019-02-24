@@ -1,33 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { CentersService } from '../../../../services/centers.service';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-centers',
   templateUrl: './centers.component.html',
   styleUrls: ['./centers.component.scss']
 })
-export class CentersComponent implements OnInit {
+export class CentersComponent {
 
-  constructor(private server: CentersService) { }
-
-  ngOnInit() {
-  }
-
-
-  center: Object = {};
-
-
-
-
-  /*getCenter(id){
-    this.server.getCenter(id)
-      .subscribe( (response) => {
-        console.log(response);
-      } );
-  }*/
-
-
-
-
+  constructor() { }
 
 }

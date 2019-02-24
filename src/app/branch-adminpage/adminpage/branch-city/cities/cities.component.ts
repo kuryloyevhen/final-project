@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { CitiesService } from '../../../../services/cities.service';
 
 @Component({
   selector: 'app-cities',
@@ -8,14 +7,6 @@ import { CitiesService } from '../../../../services/cities.service';
 })
 export class CitiesComponent {
 
-  constructor(private server: CitiesService) { }
-
-  city: Object = {};
-
-  
-
-
-
-
+  constructor() { }
 
 }

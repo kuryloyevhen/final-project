@@ -5,9 +5,11 @@
 }
 
 .centers {
-  display: flex;
-  width: 35%;
-  flex-flow: column;
+  flex: 0 0 35%;
+}
+
+.input {
+  margin-right: 10px;
 }
 
 .map {
@@ -17,58 +19,29 @@
   height: 100vh;
 }
 
-.center-item {
-  padding-top: 15px;
-}
 
 .search-field {
   display: flex;
-  padding-bottom: 10px;
+  align-items: center;
+  padding-bottom: 20px;
 }
 
-.center-title {
-  display: flex;
-  padding-bottom: 10px;
+.center-item {
+  margin-bottom: 5px;
 }
 
 .list-item {
   margin-bottom: 5px;
 }
 
-
-.label {
-  display: block;
-  padding-bottom: 15px;
-}
-
-.input {
-  height: 25px;
-  margin-right: 10px;
+.name {
+  width: 60%;
 }
 
 .update-center-form {
   width: 100%;
 }
 
-
-
-.name {
-  display: inline-block;
-  width: 200px;
-  padding: 5px 10px;
-}
-
-
-.text {
-  display: inline-block;
-  width: 120px;
-  padding-bottom: 5px;
-}
-
 .subsection {
   padding-left: 10px;
-}
-
-.checked {
-  background-color: #00FF00;
 }

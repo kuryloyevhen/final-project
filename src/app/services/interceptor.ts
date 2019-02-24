@@ -23,10 +23,10 @@ export class Interceptor implements HttpInterceptor {
           if ( error.status === 403 ) {
             return this.auth.getNewAccessToken()
               .pipe(mergeMap((res: any): Observable<any> => {
-                localStorage.setItem('access_token', (res).access_token)
+                localStorage.setItem('access_token', res.access_token);
+                localStorage.setItem('refresh_token', res.user.refresh_token);
                 return next.handle(this.applyCredentials(req, this.auth.getAccessToken()));
               }))
-
             }
 
           }));

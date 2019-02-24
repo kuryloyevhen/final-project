@@ -7,6 +7,7 @@ import { AdminpageComponent } from './adminpage/adminpage.component';
 const routes: Routes = [
 
   { path: '', component: AdminpageComponent, children: [
+    { path: '', redirectTo: 'cities', pathMatch: 'full' },
     { path: 'cities', loadChildren: './adminpage/branch-city/city.module#CityModule' },
     { path: 'centers', loadChildren: './adminpage/branch-center/center.module#CenterModule' },
     { path: 'users', loadChildren: './adminpage/branch-user/user.module#UserModule' },

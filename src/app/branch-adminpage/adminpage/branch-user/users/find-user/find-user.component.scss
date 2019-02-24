@@ -2,14 +2,15 @@
 .search-field {
   display: flex;
   flex-flow: row nowrap;
+  align-items: center;
   width: 100%;
 }
 
-
-.label {
+.input {
   margin-right: 10px;
 }
 
-.list-item {
-  margin-bottom: 10px;
+.name {
+  color: #F50A15;
+  font-weight: bold;
 }

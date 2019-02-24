@@ -1,11 +1,16 @@
 
 .search {
   display: flex;
-  margin-bottom: 20px;
+  align-items: center;
+  margin-bottom: 10px;
 }
 
-.label {
+.input {
   margin-right: 10px;
+}
+
+.booking {
+  margin-bottom: 10px;
 }
 
 .booking--active {

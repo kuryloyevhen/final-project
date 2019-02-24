@@ -1,40 +1,42 @@
 
-
-.label {
-  display: block;
-  margin-bottom: 5px;
-}
-
-.title {
-  margin-bottom: 10px;
-}
-
-.section {
-  margin-bottom: 30px;
-}
-
-.subsection {
-  margin-bottom: 20px;
-}
-
-.time {
+.add-center-form {
   display: flex;
-  flex-flow: row wrap;
-  justify-content: flex-start;
-  align-content: space-between;
+  flex-direction: column;
 }
 
-.time > :first-child {
-  flex: 1 1 100%;
-  text-align: center;
-  margin-bottom: 20px;
+.option {
+  width: 200px;
 }
 
-.time .subsection {
+.section .option {
   margin-right: 20px;
 }
 
-.subtitle {
-  margin-bottom: 10px;
+.multi-section {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-flow: row wrap;
+}
+
+.input {
+  width: 120px;
+  margin-right: 20px;
+}
+
+.title {
+  flex: 0 0 100%;
   text-align: center;
+  margin-bottom: 15px;
+}
+
+.btn {
+  width: 150px;
+}
+
+.subsection {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  margin-right: 20px;
 }

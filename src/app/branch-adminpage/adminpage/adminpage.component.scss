@@ -1,62 +1,20 @@
 
 .articles-panel {
   position: fixed;
-  top: 60px;
+  z-index: 1;
   left: 0;
   background-color: #1e2d3b;
-  height: 100vh;
-  width: 250px;
-  padding: 50px 0 0 20px;
 }
 
 .article {
   color: #fff;
-  margin-bottom: 20px;
   background-color: inherit;
   border: none;
-  display: block;
-  width: 100%;
+  
   text-align: left;
-  padding: 10px 20px;
-  margin-right: 76px;
 }
 
 .active {
   background-color: #fff;
   color: #1e2d3b;
-}
-
-
-@media screen and (min-width: 801px) and (max-width: 1399px){
-
-  .articles-panel {
-    top: 40px;
-    padding: 40px 0 0 0;
-    width: 150px;
-  }
-
-  .article {
-    padding: 5px 0 5px 10px;
-    margin: 0 0 10px 0;
-  }
-
-}
-
-@media screen and (max-width: 800px){
-
-  .articles-panel {
-    top: 40px;
-    width: 100%;
-    height: 40px;
-    padding: 10px 0 0 3px;
-  }
-
-  .article {
-    display: inline-block;
-    padding: 5px;
-    margin: 0 3px;
-    width: auto;
-    font-size: 16px;
-  }
-
 }

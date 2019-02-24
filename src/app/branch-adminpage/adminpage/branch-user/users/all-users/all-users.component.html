@@ -1,22 +1,32 @@
 <div class="admin-content">
   <div class="sort-options">
-    <label>
-      Sort by date range:
-      <input type="date" #fromDate>
-      <input type="date" #toDate>
-    </label>
-    <button class="button--basic" type="button" (click)='sortByDateRange(fromDate.value, toDate.value)'>Sort</button>
+    <mat-form-field class='input'>
+      <input matInput [matDatepicker]="fromDate" placeholder="From date" #from>
+      <mat-datepicker-toggle matSuffix [for]="fromDate"></mat-datepicker-toggle>
+      <mat-datepicker #fromDate></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field class='input'>
+      <input matInput [matDatepicker]="toDate" placeholder="To date" #to>
+      <mat-datepicker-toggle matSuffix [for]="toDate"></mat-datepicker-toggle>
+      <mat-datepicker #toDate></mat-datepicker>
+    </mat-form-field>
+    <button mat-raised-button color='primary' type="button" (click)='sortByDateRange(from.value, to.value)'>Sort</button>
   </div>
-  <div class="sort-options">
-    <button class="button--basic" type="button" (click)='sortOldFirst()'>Old first</button>
-    <button class="button--basic" type="button" (click)='sortNewFirst()'>New first</button>
+  <div class="sort-options btn-group">
+    <button class="btn" mat-stroked-button [class.btn--primary] = "checked == 'all'"  type="button" (click)='showAllUsers()'
+    [matBadge] = 'allUsers' matBadgePosition='after' matBadgeColor='accent'>All</button>
+    <button class="btn" mat-stroked-button [class.btn--primary] = "checked == 'old'" type="button" (click)='sortOldFirst()'>Old first</button>
+    <button class="btn" mat-stroked-button [class.btn--primary] = "checked == 'new'" type="button" (click)='sortNewFirst()'>New first</button>
+    <button class="btn" mat-stroked-button [class.btn--primary] = "checked == 'by date'" type="button" (click)='sortNewFirst()'
+    [matBadge] = 'sortedUsers' matBadgePosition='after' matBadgeColor='accent'>By date</button>
   </div>
   <div class="user" *ngFor='let user of users'>
-    <ul class="list" >
-      <li class="list-item">Name: {{user.fullName}}</li>
-      <li class="list-item">ID: {{user.id}}</li>
-      <li class="list-item">Date of create: {{user.created_at | date: 'medium'}}</li>
-    </ul>
-    <hr>
+    <mat-list class="list" >
+      <mat-list-item class="list-item name">Name: {{user.fullName}}</mat-list-item>
+      <mat-list-item class="list-item">ID: {{user.id}}</mat-list-item>
+      <mat-list-item class="list-item">Date of create: {{user.created_at | date: 'medium'}}</mat-list-item>
+      <mat-divider></mat-divider>
+    </mat-list>
+
   </div>
 </div>

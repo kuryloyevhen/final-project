@@ -1,21 +1,18 @@
 <div class="authorization">
-  <div class="authorization-panel" >
+  <form class="authorization-panel" [formGroup]='authorizationForm'>
     <header class="header">
       <h2 class='subtitle'>Login to your acount</h2>
     </header>
-    <div class="main" [formGroup]='authorizationForm'>
-      <label class='label'>
-        Enter email:
-        <input class="input" type="email" formControlName='email' >
-      </label>
-      <label class='label'>
-        Enter password:
-        <input class="input" type="password" formControlName='password' >
-      </label>
+    <div class="main" >
+      <mat-form-field class = 'input'>
+        <input  matInput placeholder="Email" type="text" formControlName='email' #email>
+      </mat-form-field>
+      <mat-form-field class = 'input'>
+        <input  matInput placeholder="Password" type="text" formControlName='password' #password>
+      </mat-form-field>
     </div>
     <footer class="footer">
-      <button class="button" type="button" (click)='signIn()'>SIGN IN</button><br><br>
-      <a class='link' routerLink='../registration'>I don't have an account</a>
+      <button mat-raised-button color="primary" type="button" (click)='signIn()'>Sign in</button>
     </footer>
-  </div>
+  </form>
 </div>

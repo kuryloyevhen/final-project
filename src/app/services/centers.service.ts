@@ -10,6 +10,7 @@ export class CentersService {
 
   constructor(private http: HttpClient) { }
 
+  centerId: string;
 
   getCenters(city): Observable<Centers>{
     return this.http.get<Centers> ( `https://0uumsbtgfd.execute-api.eu-central-1.amazonaws.com/Development/v0/centers/${city}`);

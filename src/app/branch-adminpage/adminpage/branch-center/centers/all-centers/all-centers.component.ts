@@ -1,23 +1,25 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { Component, OnInit, Inject, OnDestroy } from '@angular/core';
+import * as Rx from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
+import { DialogComponent } from './dialog.component';
+import { MatDialog, MatDialogConfig } from '@angular/material';
 import { CentersService } from '../../../../../services/centers.service';
 import { CitiesService } from '../../../../../services/cities.service';
 declare var ol: any;
-
 
 @Component({
   selector: 'app-all-centers',
   templateUrl: './all-centers.component.html',
   styleUrls: ['./all-centers.component.scss']
 })
-export class AllCentersComponent implements OnInit {
+export class AllCentersComponent implements OnInit, OnDestroy {
 
   constructor(private server: CentersService,
               private citiesService: CitiesService,
-              private fb: FormBuilder) { }
+              public dialog: MatDialog) { }
 
 
-
+  private unsubscribe: Rx.Subject<void> = new Rx.Subject();
   map: any;
   mapDefaultZoom: number = 11;
   mapLat: number;
@@ -27,15 +29,7 @@ export class AllCentersComponent implements OnInit {
   center: Object;
   bikesCount = 0;
 
-  checkedCenterId: string;
   updateCenterId: string;
-
-  updateCenterForm = this.fb.group({
-    bikesCount: [this.bikesCount],
-    cost: [0],
-    refundDeposit: [0]
-  })
-
 
   ngOnInit() {
       this.map = new ol.Map({
@@ -72,57 +66,49 @@ export class AllCentersComponent implements OnInit {
 }
 
 showCenters(cityName: string, centers){
-  this.citiesService.getCities().subscribe( (response) => {
-    this.cities = response.Items;
-    for(let city of this.cities){
-      if(city.city == cityName){
-        this.mapLat = city.location.lat;
-        this.mapLon = city.location.lon;
+  this.citiesService.getCities().pipe(takeUntil(this.unsubscribe))
+    .subscribe( (response) => {
+      this.cities = response.Items;
+      for(let city of this.cities){
+        if(city.city == cityName){
+          this.mapLat = city.location.lat;
+          this.mapLon = city.location.lon;
+        }
       }
-    }
-    let view = this.map.getView();
-    view.setCenter(ol.proj.fromLonLat([+this.mapLon, +this.mapLat]));
-    view.setZoom(10);
+      let view = this.map.getView();
+      view.setCenter(ol.proj.fromLonLat([+this.mapLon, +this.mapLat]));
+      view.setZoom(10);
     } );
-    this.server.getCenters(cityName)
+    this.server.getCenters(cityName).pipe(takeUntil(this.unsubscribe))
       .subscribe( (response) => {
         this.centers = response.Items;
-        console.log(this.centers);
         for(let center of this.centers){
           this.addMarker(center.location.lat, center.location.lon );
         }
-      } );
-
-
-}
+      });
+    }
 
   removeCenter(id: string){
-    console.log(id);
-    this.server.removeCenter(id)
-      .subscribe( (response) => {
-        console.log(response);
-      } );
+    this.server.removeCenter(id).pipe(takeUntil(this.unsubscribe))
+      .subscribe( );
   }
 
-
-  updateCenter(centerId) {
-    this.server.updateCenter(centerId, this.updateCenterForm.value)
-      .subscribe( (response) => console.log(response) );
+  openModal(centerId) {
+    this.server.centerId = centerId;
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.data = {
+      id:1,
+      title: 'Update center form'
+    };
+    const dialogRef = this.dialog.open( DialogComponent, dialogConfig );
+    dialogRef.afterClosed().subscribe();
   }
 
-  toUpdateForm(city, centerId) {
-    if(this.updateCenterId == centerId) this.updateCenterId = '';
-    else {
-      this.updateCenterId = centerId;
-      this.checkedCenterId = '';
-      this.server.getCenter(city, centerId)
-        .subscribe( (response) => { this.center = response; console.log(this.center); } );
-    }
-  }
-
-  showCenterInfo(centerId) {
-    if(this.checkedCenterId == centerId) this.checkedCenterId = '';
-    else { this.checkedCenterId = centerId; this.updateCenterId = ''; }
+  ngOnDestroy() {
+    this.unsubscribe.next();
+    this.unsubscribe.complete();
   }
 
 
