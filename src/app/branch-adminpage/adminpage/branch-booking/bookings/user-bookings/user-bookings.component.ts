@@ -2,6 +2,7 @@ import { Component, OnDestroy } from '@angular/core';
 import * as Rx from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { BookingsService } from '../../../../../services/bookings.service';
+import { Booking } from '../../../../../interfaces/booking';
 
 
 @Component({
@@ -14,7 +15,7 @@ export class UserBookingsComponent implements OnDestroy {
   constructor(private server: BookingsService) { }
 
   private unsubscribe: Rx.Subject<void> = new Rx.Subject();
-  bookings: Array<any>;
+  bookings: Array<Booking>;
   checked: string;
 
   bookingsAll: number;

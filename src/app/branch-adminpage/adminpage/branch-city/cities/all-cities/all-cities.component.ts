@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy  } from '@angular/core';
 import * as Rx from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { CitiesService } from '../../../../../services/cities.service';
+import { City } from '../../../../../interfaces/city';
 
 @Component({
   selector: 'app-all-cities',
@@ -18,7 +19,7 @@ export class AllCitiesComponent implements OnInit, OnDestroy  {
       this.getCities();
   }
 
-    cities: Array<any> = [];
+    cities: Array<City> = [];
 
     getCities() {
       this.server.getCities().pipe(takeUntil(this.unsubscribe))

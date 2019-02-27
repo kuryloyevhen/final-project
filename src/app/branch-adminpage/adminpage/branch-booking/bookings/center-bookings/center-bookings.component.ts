@@ -3,6 +3,7 @@ import * as Rx from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { BookingsService } from '../../../../../services/bookings.service';
 import { CentersService } from '../../../../../services/centers.service';
+import { Booking } from '../../../../../interfaces/booking';
 
 @Component({
   selector: 'app-center-bookings',
@@ -16,7 +17,7 @@ export class CenterBookingsComponent implements OnInit, OnDestroy {
 
   private unsubscribe: Rx.Subject<void> = new Rx.Subject();
 
-  bookingArr: Array<any> = [];
+  bookingArr: Array<Booking> = [];
   centerId: string;
   checked: string;
   bookingsAll: number;

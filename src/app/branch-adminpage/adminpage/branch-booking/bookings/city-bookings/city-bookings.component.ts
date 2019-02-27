@@ -3,6 +3,8 @@ import * as Rx from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { BookingsService } from '../../../../../services/bookings.service';
 import { CentersService } from '../../../../../services/centers.service';
+import { Booking } from '../../../../../interfaces/booking';
+import { Center } from '../../../../../interfaces/center';
 
 @Component({
   selector: 'app-city-bookings',
@@ -15,8 +17,8 @@ export class CityBookingsComponent implements OnDestroy {
               private centersService: CentersService) { }
 
   private unsubscribe: Rx.Subject<void> = new Rx.Subject();
-  bookings: Array<any>;
-  centers: Array<any>;
+  bookings: Array<Booking>;
+  centers: Array<Center>;
   checked: string;
   display: string = 'bookings';
   countCenters: number;
@@ -30,7 +32,6 @@ export class CityBookingsComponent implements OnDestroy {
         let completed = [];
         let active = [];
         this.bookings = response;
-        console.log(this.bookings[0]);
         this.checked = 'all';
         this.display = 'bookings';
         this.bookingsAll = this.bookings.length;
@@ -46,7 +47,6 @@ export class CityBookingsComponent implements OnDestroy {
 
 
   getBookingByCityActive(city: string) {
-    console.log(city);
     this.server.getBookingByCity(city).pipe(takeUntil(this.unsubscribe))
       .subscribe( (response) => {
         this.bookings = [];

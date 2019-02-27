@@ -5,6 +5,8 @@ import { DialogComponent } from './dialog.component';
 import { MatDialog, MatDialogConfig } from '@angular/material';
 import { CentersService } from '../../../../../services/centers.service';
 import { CitiesService } from '../../../../../services/cities.service';
+import { Center } from '../../../../../interfaces/center';
+import { City } from '../../../../../interfaces/city';
 declare var ol: any;
 
 @Component({
@@ -22,10 +24,10 @@ export class AllCentersComponent implements OnInit, OnDestroy {
   private unsubscribe: Rx.Subject<void> = new Rx.Subject();
   map: any;
   mapDefaultZoom: number = 11;
-  mapLat: number;
-  mapLon: number;
-  cities: Array<any>;
-  centers: Array<any>;
+  mapLat: string;
+  mapLon: string;
+  cities: Array<City>;
+  centers: Array<Center>;
   center: Object;
   bikesCount = 0;
 

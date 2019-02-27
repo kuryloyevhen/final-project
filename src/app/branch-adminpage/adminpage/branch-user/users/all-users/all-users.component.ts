@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import * as Rx from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { UsersService } from '../../../../../services/users.service';
+import { User } from '../../../../../interfaces/user';
 
 @Component({
   selector: 'app-all-users',
@@ -23,7 +24,7 @@ export class AllUsersComponent implements OnInit, OnDestroy {
       });
   }
 
-  users: Array<any> = [];
+  users: Array<User> = [];
   checked: string = 'all';
 
   allUsers: number;
