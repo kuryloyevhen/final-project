@@ -10,7 +10,9 @@ export class UsersService {
 
   constructor(private http: HttpClient) { }
 
+  urlUsers: string = 'https://0uumsbtgfd.execute-api.eu-central-1.amazonaws.com/Development/v0/users/all';
+
   getUsers(): Observable<User[]>{
-    return this.http.get<User[]>('https://0uumsbtgfd.execute-api.eu-central-1.amazonaws.com/Development/v0/users/all');
+    return this.http.get<User[]>(this.urlUsers);
   }
 }

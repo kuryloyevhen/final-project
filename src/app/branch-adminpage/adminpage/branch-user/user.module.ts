@@ -8,7 +8,8 @@ import {
             MatDividerModule,
             MatListModule,
             MatButtonModule,
-            MatBadgeModule
+            MatBadgeModule,
+            MatIconModule
                                     } from '@angular/material';
 
 
@@ -33,7 +34,8 @@ import { UsersService } from '../../../services/users.service';
     MatDividerModule,
     MatListModule,
     MatButtonModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatIconModule
   ],
   providers: [
     UsersService

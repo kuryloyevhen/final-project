@@ -10,12 +10,12 @@
   </div>
   <div class="filters">
     <button class="btn" mat-stroked-button [class.btn--primary] = "checked == 'all'" type="button" (click)='getBookingAll(userId.value)'
-    >
+    [matBadge]='bookingsAll' matBadgePosition='after' matBadgeColor='accent'>
       All</button>
     <button class="btn" mat-stroked-button [class.btn--primary] = "checked == 'active' "type="button" (click)='getBookingActive(userId.value)'
-    >Active</button>
+    [matBadge]='bookingsActive' matBadgePosition='after' matBadgeColor='accent'>Active</button>
     <button class="btn" mat-stroked-button [class.btn--primary] = "checked == 'completed' "type="button" (click)='getBookingCompleted(userId.value)'
-    >Completed</button>
+    [matBadge]='bookingsCompleted' matBadgePosition='after' matBadgeColor='accent'>Completed</button>
   </div>
 
 

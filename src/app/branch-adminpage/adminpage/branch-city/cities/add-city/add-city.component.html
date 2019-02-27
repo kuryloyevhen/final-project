@@ -13,7 +13,10 @@
           <input matInput placeholder = 'Longitude' class="input" formControlName='lon'>
         </mat-form-field>
       </div>
-      <button class="btn" mat-raised-button color="primary" (click)='addCity()'>Add city</button>
+      <button class="btn" mat-raised-button color="primary"
+      (click)='addCity()' [disabled] = 'addCityForm.invalid'
+      >Add city</button>
+      <span class="info" *ngIf = 'isVisible'>New city was added!</span>
     </form>
 
 </div>

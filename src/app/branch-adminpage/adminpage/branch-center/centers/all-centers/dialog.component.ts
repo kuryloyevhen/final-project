@@ -2,7 +2,7 @@ import { Component, Inject, OnDestroy } from '@angular/core';
 import * as Rx from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { FormBuilder, Validators } from '@angular/forms';
-import { MAT_DIALOG_DATA  } from '@angular/material';
+import { MatDialog, MAT_DIALOG_DATA  } from '@angular/material';
 import { CentersService } from '../../../../../services/centers.service';
 
 
@@ -24,6 +24,7 @@ export class DialogComponent implements OnDestroy {
 
   constructor(private fb: FormBuilder,
               private server: CentersService,
+              private dialog: MatDialog,
               @Inject(MAT_DIALOG_DATA) public data: any) {
                 this.modalTitle = data.title;
               }
@@ -32,7 +33,7 @@ export class DialogComponent implements OnDestroy {
 
   updateCenter() {
     this.server.updateCenter(this.server.centerId, this.updateCenterForm.value).pipe(takeUntil(this.unsubscribe))
-      .subscribe();
+      .subscribe( () => this.dialog.closeAll() );
   }
 
   ngOnDestroy() {

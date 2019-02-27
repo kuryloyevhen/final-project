@@ -13,10 +13,10 @@
       <mat-expansion-panel-header>
         <mat-panel-title class="name"> {{center.name}} </mat-panel-title>
         <mat-panel-description>
-          <button class="button--icon" type="button" (click)='removeCenter(center.id)'>
+          <button class="button--icon" type="button" (click)='removeCenter(cityName.value, center.id, $event, center.name)'>
             <img class='image' src="../../../assets/delete.svg">
           </button>
-          <button class="button--icon" type="button" (click)='openModal(center.id)'>
+          <button class="button--icon" type="button" (click)='openModal(center.id, $event, cityName.value)'>
             <img class='image' src="../../../assets/edit.svg">
           </button>
         </mat-panel-description>

@@ -14,3 +14,7 @@ class Location {
   lat: string;
   lon: string;
 }
+
+export class RemoveCity {
+  id: number
+}

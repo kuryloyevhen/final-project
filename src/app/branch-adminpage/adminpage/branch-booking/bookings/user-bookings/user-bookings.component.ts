@@ -17,12 +17,25 @@ export class UserBookingsComponent implements OnDestroy {
   bookings: Array<any>;
   checked: string;
 
+  bookingsAll: number;
+  bookingsCompleted: number;
+  bookingsActive: number;
+
 
   getBookingAll(id: string, status: string = 'all'){
     this.server.getBookingByUser(id, status).pipe(takeUntil(this.unsubscribe))
       .subscribe( (response) => {
+        let completed = [];
+        let active = [];
         this.bookings = response;
         this.checked = status;
+        this.bookingsAll = this.bookings.length;
+        for(let booking of this.bookings){
+          if(booking.status == 'active') active.push(booking);
+          else if(booking.status == 'completed') completed.push(booking);
+        }
+        this.bookingsActive = active.length;
+        this.bookingsCompleted = completed.length;
       });
   }
 

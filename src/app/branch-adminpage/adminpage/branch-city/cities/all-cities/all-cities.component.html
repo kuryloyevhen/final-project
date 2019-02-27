@@ -5,7 +5,7 @@
           {{city.city}}
         </mat-panel-title>
         <mat-panel-description>
-          <button class='button--icon' type="button" (click)='removeCity(city.id)'>
+          <button class='button--icon' type="button" (click)='removeCity(city.id, $event, city.city)'>
             <img class='image' src="../../../assets/delete.svg">
           </button>
         </mat-panel-description>

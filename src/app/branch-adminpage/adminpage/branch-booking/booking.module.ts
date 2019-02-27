@@ -11,17 +11,23 @@ import {
 
 import { BookingsComponent } from './bookings/bookings.component';
 import { UserBookingsComponent } from './bookings/user-bookings/user-bookings.component';
-import { CommonBookingsComponent } from './bookings/common-bookings/common-bookings.component';
+import { CityBookingsComponent } from './bookings/city-bookings/city-bookings.component';
 
 import { BookingsService } from '../../../services/bookings.service';
+import { CentersService } from '../../../services/centers.service';
+import { CenterBookingsComponent } from './bookings/center-bookings/center-bookings.component';
 
 @NgModule({
   declarations: [
     BookingsComponent,
     UserBookingsComponent,
-    CommonBookingsComponent
+    CityBookingsComponent,
+    CenterBookingsComponent
   ],
-  providers: [ BookingsService ],
+  providers: [
+    BookingsService,
+    CentersService
+  ],
   imports: [
     CommonModule,
     BookingRoutingModule,

@@ -21,6 +21,7 @@ export class AddCenterComponent implements OnDestroy {
   patternAddr = /[a-z0-9,-\.\s]/i;
   patternCoords = /^(\-?\d+(\.\d+)?)/;
   patternTime = /^([0-9]|0[0-9]|1[0-9]|2[0-3])\.[0-5][0-9]$/;
+  isVisible: boolean = false;
 
   addCenterForm = this.fb.group({
     "city": ["Berlin", Validators.compose([Validators.required, Validators.pattern(this.patternCity)])],
@@ -74,7 +75,10 @@ export class AddCenterComponent implements OnDestroy {
 
   addCenter(){
     this.server.addCenter(this.addCenterForm.value).pipe(takeUntil(this.unsubscribe))
-      .subscribe();
+      .subscribe( () => {
+        this.isVisible = true;
+        setTimeout( () => this.isVisible = false, 5000)
+      });
   }
 
   ngOnDestroy() {

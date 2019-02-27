@@ -88,12 +88,20 @@ showCenters(cityName: string, centers){
       });
     }
 
-  removeCenter(id: string){
-    this.server.removeCenter(id).pipe(takeUntil(this.unsubscribe))
-      .subscribe( );
+  removeCenter(cityName: string, id: string, event, center: string){
+    event.stopPropagation();
+    let isAgree = confirm(`You definitely want to delete ${center}?`);
+    if(isAgree){
+      this.server.removeCenter(id).pipe(takeUntil(this.unsubscribe))
+        .subscribe( () =>
+        this.server.getCenters(cityName).pipe(takeUntil(this.unsubscribe))
+          .subscribe( (response) => this.centers = response.Items )
+      );
+    }
   }
 
-  openModal(centerId) {
+  openModal(centerId, event, cityName) {
+    event.stopPropagation();
     this.server.centerId = centerId;
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
@@ -103,7 +111,10 @@ showCenters(cityName: string, centers){
       title: 'Update center form'
     };
     const dialogRef = this.dialog.open( DialogComponent, dialogConfig );
-    dialogRef.afterClosed().subscribe();
+    dialogRef.afterClosed().subscribe( () =>
+      this.server.getCenters(cityName).pipe(takeUntil(this.unsubscribe))
+        .subscribe( (response) => this.centers = response.Items )
+    );
   }
 
   ngOnDestroy() {

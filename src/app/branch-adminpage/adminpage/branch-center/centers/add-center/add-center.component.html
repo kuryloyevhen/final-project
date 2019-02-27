@@ -123,6 +123,8 @@
         </label>
       </div>
     </div>
-    <button class="btn" mat-raised-button color="primary" type="button" (click)='addCenter()'>ADD CENTER</button>
+    <button class="btn" mat-raised-button color="primary" type="button"
+      [disabled] = 'addCenterForm.invalid'(click)='addCenter()'>ADD CENTER</button>
+    <span class="info" *ngIf = 'isVisible'>New center was added!</span>
   </form>
 </div>

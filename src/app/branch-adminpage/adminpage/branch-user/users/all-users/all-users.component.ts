@@ -28,6 +28,7 @@ export class AllUsersComponent implements OnInit, OnDestroy {
 
   allUsers: number;
   sortedUsers: number;
+  firstUser: Object;
 
 
   showAllUsers() {
@@ -54,13 +55,32 @@ export class AllUsersComponent implements OnInit, OnDestroy {
   }
 
   sortByDateRange(from: string, to: string){
-    let fromDate = Date.parse(from);
-    let toDate = Date.parse(to);
+    this.server.getUsers().pipe(takeUntil(this.unsubscribe))
+      .subscribe( (response) =>  {
+      this.users = response;
+
+
+    let fromDate, toDate;
+    if(from && to){
+      fromDate = Date.parse(from);
+      toDate = Date.parse(to);
+    } else if(from && !to){
+      fromDate = Date.parse(from);
+      toDate = Date.now();
+    } else if(!from && to){
+      let oldUsers = this.users;
+      oldUsers.sort((a,b) => {
+        return a.created_at - b.created_at;
+      });
+      fromDate = oldUsers[0].created_at;
+      toDate = Date.parse(to);
+    }
     this.users = this.users.filter( (elem) => {
         return (elem.created_at >= fromDate && elem.created_at <= toDate);
     });
     this.sortedUsers = this.users.length;
     this.checked = 'by date';
+    });
   }
 
   ngOnDestroy() {

@@ -37,3 +37,7 @@ class Shedule {
   openTime: string;
   isOpen: boolean;
 }
+
+export class RemoveCenter {
+  id: string
+}

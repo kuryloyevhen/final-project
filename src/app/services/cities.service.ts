@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-import { Cities, City } from '../interfaces/city';
+import { Cities, City, RemoveCity } from '../interfaces/city';
 
 @Injectable()
 
@@ -11,8 +11,7 @@ export class CitiesService {
   constructor(private http: HttpClient) { }
 
 
-  urlCities: string = 'https://0uumsbtgfd.execute-api.eu-central-1.amazonaws.com/Development/v0/cities';
-  urlCity: string = 'https://0uumsbtgfd.execute-api.eu-central-1.amazonaws.com/Development/v0/cities';
+  urlCities: string = 'https://0uumsbtgfd.execute-api.eu-central-1.amazonaws.com/Development/v0/cities/';
 
 
   getCities(): Observable<Cities>{
@@ -20,11 +19,11 @@ export class CitiesService {
   }
 
   addCity(data): Observable<Cities>{
-    return this.http.post<any>(this.urlCity, data);
+    return this.http.post<any>(this.urlCities, data);
   }
 
-  removeCity(id): Observable<any>{
-    return this.http.delete<any>(`https://0uumsbtgfd.execute-api.eu-central-1.amazonaws.com/Development/v0/cities/${id}`);
+  removeCity(id): Observable<RemoveCity>{
+    return this.http.delete<RemoveCity>(this.urlCities + id );
   }
 
 

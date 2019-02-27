@@ -17,6 +17,7 @@ export class AddCityComponent {
   private unsubscribe: Rx.Subject<void> = new Rx.Subject();
   patternCity = /[a-z\s]/i;
   patternCoord = /^(\-?\d+(\.\d+)?)/;
+  isVisible: boolean = false;
 
   addCityForm = this.fb.group({
     city: ['', Validators.compose([Validators.required, Validators.pattern(this.patternCity)])],
@@ -31,7 +32,10 @@ export class AddCityComponent {
   addCity() {
     if(this.addCityForm.valid){
       this.server.addCity(this.addCityForm.value).pipe(takeUntil(this.unsubscribe))
-        .subscribe();
+        .subscribe( () => {
+          this.isVisible = true;
+          setTimeout( () => this.isVisible = false, 5000)
+        });
     }
   }
 

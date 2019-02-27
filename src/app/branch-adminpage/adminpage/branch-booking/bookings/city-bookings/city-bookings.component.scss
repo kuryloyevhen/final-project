@@ -1,0 +1,39 @@
+
+.search {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.filters {
+  margin-bottom: 10px;
+}
+
+.input {
+  margin-right: 10px;
+}
+
+.booking {
+  margin-bottom: 10px;
+}
+
+.booking--active {
+  background-color: #00FF00;
+}
+
+.booking--confirmed {
+  background-color: #FFFF00;
+}
+
+.booking--completed {
+  background-color: #C0C0C0;
+}
+
+.btn {
+  margin-right: 15px;
+}
+
+.btn--primary {
+  color: #3f51b5;
+  font-weight: bold;
+}

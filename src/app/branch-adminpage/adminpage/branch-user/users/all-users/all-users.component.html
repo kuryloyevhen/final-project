@@ -10,7 +10,8 @@
       <mat-datepicker-toggle matSuffix [for]="toDate"></mat-datepicker-toggle>
       <mat-datepicker #toDate></mat-datepicker>
     </mat-form-field>
-    <button mat-raised-button color='primary' type="button" (click)='sortByDateRange(from.value, to.value)'>Sort</button>
+    <button mat-raised-button color='primary' type="button"
+    [disabled] = '!from.value && !to.value' (click)='sortByDateRange(from.value, to.value)'>Sort</button>
   </div>
   <div class="sort-options btn-group">
     <button class="btn" mat-stroked-button [class.btn--primary] = "checked == 'all'"  type="button" (click)='showAllUsers()'
